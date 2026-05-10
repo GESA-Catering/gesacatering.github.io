@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GESA Catering — Pedidos de la semana</title>
+  <meta name="description" content="Pedí tu vianda semanal de GESA Catering. Menú económico, tradicional, ejecutivo, fit, sugerencia del chef y menú GESA." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: #F7F4F0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 0 0 2rem;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 480px;
+      background: #fff;
+      min-height: 100vh;
+      box-shadow: 0 0 40px rgba(0,0,0,0.08);
+    }
+
+    /* HEADER */
+    .header {
+      background: #fff;
+      padding: 1.25rem 1.25rem 1rem;
+      border-bottom: 1px solid #EDE9E3;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .logo-blocks { display: flex; gap: 3px; }
+    .logo-block {
+      width: 30px; height: 30px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 17px; font-weight: 500;
+      color: #F5EFE0; border-radius: 4px;
+    }
+    .lb-g { background: #993333; }
+    .lb-e { background: #CC6633; }
+    .lb-s { background: #889944; }
+    .lb-a { background: #CC9933; }
+    .header-text { flex: 1; }
+    .header-title {
+      font-size: 15px; font-weight: 700;
+      color: #1A1A1A; line-height: 1.2;
+    }
+    .header-sub { font-size: 12px; color: #888; margin-top: 2px; }
+
+    /* DAY TABS */
+    .day-tabs {
+      display: flex;
+      overflow-x: auto;
+      padding: 0.85rem 1.25rem 0;
+      gap: 8px;
+      border-bottom: 1px solid #EDE9E3;
+      scrollbar-width: none;
+    }
+    .day-tabs::-webkit-scrollbar { display: none; }
+    .day-tab {
+      flex-shrink: 0;
+      padding: 7px 16px;
+      border-radius: 20px;
+      border: 1px solid #DDD;
+      font-size: 13px; font-weight: 400;
+      background: #fff; color: #666;
+      cursor: pointer;
+      transition: all 0.15s;
+      margin-bottom: 0.85rem;
+    }
+    .day-tab.active {
+      background: #993333; color: #fff;
+      border-color: #993333; font-weight: 700;
+    }
+    .day-tab:hover:not(.active) { border-color: #999; color: #333; }
+
+    /* MENUS */
+    .menus-section { padding: 1rem 1.25rem 0; }
+    .section-label {
+      font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: #999; margin-bottom: 10px;
+    }
+
+    .menu-card {
+      border: 1px solid #EDE9E3;
+      border-radius: 12px;
+      padding: 0.9rem 1rem;
+      margin-bottom: 8px;
+      cursor: pointer;
+      background: #fff;
+      transition: border-color 0.15s, box-shadow 0.15s;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .menu-card:hover { border-color: #CCC; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .menu-card.selected { border: 2px solid #993333; }
+
+    .menu-radio {
+      width: 20px; height: 20px; border-radius: 50%;
+      border: 1.5px solid #CCC;
+      flex-shrink: 0; margin-top: 1px;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.15s;
+    }
+    .menu-card.selected .menu-radio { background: #993333; border-color: #993333; }
+    .menu-card.selected .menu-radio::after {
+      content: ''; width: 8px; height: 8px;
+      border-radius: 50%; background: white;
+    }
+
+    .menu-info { flex: 1; min-width: 0; }
+    .menu-top { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
+    .menu-badge {
+      font-size: 10px; font-weight: 700;
+      padding: 2px 8px; border-radius: 20px;
+      text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .badge-economico  { background: #F1EFE8; color: #5F5E5A; }
+    .badge-tradicional{ background: #FAEEDA; color: #7A4F10; }
+    .badge-ejecutivo  { background: #E6F1FB; color: #185FA5; }
+    .badge-fit        { background: #EAF3DE; color: #3B6D11; }
+    .badge-chef       { background: #FAECE7; color: #993C1D; }
+    .badge-gesa       { background: #993333; color: #fff; }
+
+    .menu-name {
+      font-size: 14px; font-weight: 700;
+      color: #1A1A1A; line-height: 1.3;
+    }
+    .menu-desc {
+      font-size: 13px; color: #666;
+      margin-top: 3px; line-height: 1.45;
+    }
+
+    .gesa-selects { margin-top: 10px; display: flex; flex-direction: column; gap: 8px; }
+    .gesa-label { font-size: 12px; color: #888; margin-bottom: 3px; font-weight: 700; }
+    .gesa-selects select {
+      width: 100%; padding: 8px 10px;
+      border: 1px solid #DDD; border-radius: 8px;
+      font-size: 13px; font-family: 'Lato', sans-serif;
+      color: #1A1A1A; background: #FAFAFA;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+    }
+
+    /* FORM */
+    .form-section { padding: 0.85rem 1.25rem 0; }
+    .form-group { margin-bottom: 0.85rem; }
+    .form-label {
+      font-size: 12px; font-weight: 700; color: #666;
+      margin-bottom: 5px; display: block; text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .form-section input {
+      width: 100%; padding: 10px 12px;
+      border: 1px solid #DDD; border-radius: 8px;
+      font-size: 14px; font-family: 'Lato', sans-serif;
+      color: #1A1A1A; background: #FAFAFA;
+      transition: border-color 0.15s;
+    }
+    .form-section input:focus {
+      outline: none; border-color: #993333;
+      background: #fff;
+    }
+    .form-section input::placeholder { color: #BBB; }
+
+    .qty-row { display: flex; align-items: center; gap: 12px; }
+    .qty-btn {
+      width: 36px; height: 36px; border-radius: 8px;
+      border: 1px solid #DDD; background: #fff;
+      cursor: pointer; font-size: 20px; color: #333;
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color 0.15s;
+    }
+    .qty-btn:hover { border-color: #993333; color: #993333; }
+    .qty-num {
+      font-size: 18px; font-weight: 700;
+      min-width: 24px; text-align: center; color: #1A1A1A;
+    }
+    .qty-label { font-size: 13px; color: #888; }
+
+    /* SUMMARY */
+    .summary-box {
+      margin: 0.85rem 1.25rem 0;
+      background: #FBF8F5;
+      border: 1px solid #EDE9E3;
+      border-radius: 10px;
+      padding: 0.9rem 1rem;
+    }
+    .sum-row {
+      display: flex; justify-content: space-between;
+      font-size: 13px; color: #666; margin-bottom: 6px;
+    }
+    .sum-row span:last-child { color: #1A1A1A; font-weight: 700; }
+
+    /* BUTTON */
+    .btn-wa {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      width: calc(100% - 2.5rem);
+      margin: 1rem 1.25rem 0.4rem;
+      padding: 14px;
+      background: #25D366; border: none;
+      border-radius: 12px;
+      font-size: 15px; font-weight: 700;
+      font-family: 'Lato', sans-serif;
+      color: white; cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .btn-wa:hover { background: #1fba59; }
+    .btn-wa:active { transform: scale(0.98); }
+
+    .footer-note {
+      font-size: 11px; color: #AAA;
+      text-align: center;
+      padding: 0 1.25rem 2rem;
+      line-height: 1.6;
+    }
+
+    .divider {
+      height: 1px; background: #EDE9E3;
+      margin: 0.85rem 1.25rem 0;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="logo-blocks">
+      <div class="logo-block lb-g">G</div>
+      <div class="logo-block lb-e">E</div>
+      <div class="logo-block lb-s">S</div>
+      <div class="logo-block lb-a">A</div>
+    </div>
+    <div class="header-text">
+      <div class="header-title">Pedidos — semana del 11 al 13 de mayo</div>
+      <div class="header-sub">Pedidos hasta las 10:00 am del día anterior</div>
+    </div>
+  </div>
+
+  <div class="day-tabs">
+    <div class="day-tab active" onclick="selectDay(0)">Lunes 11</div>
+    <div class="day-tab" onclick="selectDay(1)">Martes 12</div>
+    <div class="day-tab" onclick="selectDay(2)">Miércoles 13</div>
+  </div>
+
+  <div class="menus-section">
+    <div class="section-label">Elegí tu menú</div>
+    <div id="menuList"></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="form-section">
+    <div class="form-group">
+      <label class="form-label" for="nameInput">Nombre y empresa</label>
+      <input type="text" id="nameInput" placeholder="Ej: Juan Pérez · Tu empresa" />
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="addressInput">Dirección de entrega</label>
+      <input type="text" id="addressInput" placeholder="Ej: Av. España 1234, piso 3" />
+    </div>
+    <div class="form-group">
+      <label class="form-label">Cantidad</label>
+      <div class="qty-row">
+        <button class="qty-btn" onclick="changeQty(-1)" aria-label="Reducir">−</button>
+        <span class="qty-num" id="qtyDisplay">1</span>
+        <button class="qty-btn" onclick="changeQty(1)" aria-label="Aumentar">+</button>
+        <span class="qty-label">vianda(s)</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="summary-box" id="summaryBox" style="display:none">
+    <div class="sum-row"><span>Menú</span><span id="sumMenu">—</span></div>
+    <div class="sum-row"><span>Fecha de entrega</span><span id="sumDate">—</span></div>
+    <div class="sum-row"><span>Cantidad</span><span id="sumQty">—</span></div>
+  </div>
+
+  <button class="btn-wa" onclick="sendOrder()">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    Confirmar pedido por WhatsApp
+  </button>
+  <p class="footer-note">Tu pedido llega directo a nuestro equipo<br>Respondemos en minutos · GESA Eventos & Catering</p>
+
+</div>
+
+<script>
+const PROTEINAS = [
+  "Pechuga de pollo grillada","Bife vacuno a la plancha",
+  "Chuleta de cerdo grillada","Tilapia grillada",
+  "Milanesa de pollo","Milanesa de carne vacuna"
+];
+const GUARNICIONES = [
+  "Ensalada clásica mixta","Puré de papas","Arroz con queso",
+  "Arroz pilaf","Spaghetti a la manteca","Ensalada rusa","Ensalada de arroz"
+];
+const DAYS = [
+  { label:"Lunes 11 de mayo", menus:[
+    {cat:"Económico",badge:"badge-economico",name:"Menú económico",plate:"Guiso de fideo con pollo con mini ensalada"},
+    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",plate:"Pechuga de pollo a caballo con ensalada rusa"},
+    {cat:"Ejecutivo",badge:"badge-ejecutivo",name:"Menú ejecutivo",plate:"Lomito en reducción de vino tinto con puré de papas"},
+    {cat:"Fit",badge:"badge-fit",name:"Menú fit",plate:"Lomo de cerdo grillado con ensalada verde y palta"},
+    {cat:"Chef",badge:"badge-chef",name:"Sugerencia del chef",plate:"Bife de chorizo con salsa de hongos y papas rústicas"},
+    {cat:"GESA",badge:"badge-gesa",name:"Menú GESA",plate:"Tu elección de proteína y guarnición",isGesa:true}
+  ]},
+  { label:"Martes 12 de mayo", menus:[
+    {cat:"Económico",badge:"badge-economico",name:"Menú económico",plate:"Tallarines con salsa pomodoro y crema"},
+    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",plate:"Milanesa de pollo con puré de papas"},
+    {cat:"Ejecutivo",badge:"badge-ejecutivo",name:"Menú ejecutivo",plate:"Chuleta de cerdo con salsa de mostaza y miel y arroz cremoso"},
+    {cat:"Fit",badge:"badge-fit",name:"Menú fit",plate:"Pechuga de pollo grillada con zucchini y brócoli"},
+    {cat:"Chef",badge:"badge-chef",name:"Sugerencia del chef",plate:"Chuleta de vaca con salsa de pimienta y puré de calabaza"},
+    {cat:"GESA",badge:"badge-gesa",name:"Menú GESA",plate:"Tu elección de proteína y guarnición",isGesa:true}
+  ]},
+  { label:"Miércoles 13 de mayo", menus:[
+    {cat:"Económico",badge:"badge-economico",name:"Menú económico",plate:"Vori vori de pollo"},
+    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",plate:"Milanesa de pollo napolitana con ensalada alemana"},
+    {cat:"Ejecutivo",badge:"badge-ejecutivo",name:"Menú ejecutivo",plate:"Canelones de carne vacuna con salsa pomodoro y ensalada mixta"},
+    {cat:"Fit",badge:"badge-fit",name:"Menú fit",plate:"Tilapia grillada con ensalada verde y limón"},
+    {cat:"Chef",badge:"badge-chef",name:"Sugerencia del chef",plate:"Bife de lomito con salsa madera al vino tinto y papas especiadas"},
+    {cat:"GESA",badge:"badge-gesa",name:"Menú GESA",plate:"Tu elección de proteína y guarnición",isGesa:true}
+  ]}
+];
+
+let currentDay=0, selectedIdx=null, qty=1;
+
+function selectDay(i){
+  currentDay=i; selectedIdx=null;
+  document.querySelectorAll('.day-tab').forEach((t,j)=>t.classList.toggle('active',i===j));
+  renderMenus(); updateSummary();
+}
+
+function renderMenus(){
+  const list=document.getElementById('menuList');
+  list.innerHTML='';
+  DAYS[currentDay].menus.forEach((m,i)=>{
+    const card=document.createElement('div');
+    card.className='menu-card'+(selectedIdx===i?' selected':'');
+    card.onclick=()=>selectMenu(i);
+    let gesaHtml='';
+    if(m.isGesa){
+      gesaHtml=`<div class="gesa-selects">
+        <div>
+          <div class="gesa-label">Proteína</div>
+          <select id="gesaProt" onchange="updateSummary()" onclick="event.stopPropagation()">
+            ${PROTEINAS.map(p=>`<option>${p}</option>`).join('')}
+          </select>
+        </div>
+        <div>
+          <div class="gesa-label">Guarnición</div>
+          <select id="gesaGuar" onchange="updateSummary()" onclick="event.stopPropagation()">
+            ${GUARNICIONES.map(g=>`<option>${g}</option>`).join('')}
+          </select>
+        </div>
+      </div>`;
+    }
+    card.innerHTML=`
+      <div class="menu-radio"></div>
+      <div class="menu-info">
+        <div class="menu-top"><span class="menu-badge ${m.badge}">${m.cat}</span></div>
+        <div class="menu-name">${m.name}</div>
+        <div class="menu-desc">${m.plate}</div>
+        ${gesaHtml}
+      </div>`;
+    list.appendChild(card);
+  });
+}
+
+function selectMenu(i){selectedIdx=i; renderMenus(); updateSummary();}
+
+function changeQty(d){
+  qty=Math.max(1,Math.min(20,qty+d));
+  document.getElementById('qtyDisplay').textContent=qty;
+  updateSummary();
+}
+
+function updateSummary(){
+  const box=document.getElementById('summaryBox');
+  if(selectedIdx===null){box.style.display='none';return;}
+  box.style.display='block';
+  const m=DAYS[currentDay].menus[selectedIdx];
+  document.getElementById('sumMenu').textContent=m.name;
+  document.getElementById('sumDate').textContent=DAYS[currentDay].label;
+  document.getElementById('sumQty').textContent=qty+(qty===1?' vianda':' viandas');
+}
+
+function sendOrder(){
+  if(selectedIdx===null){alert('Por favor seleccioná un menú.');return;}
+  const name=document.getElementById('nameInput').value.trim();
+  const address=document.getElementById('addressInput').value.trim();
+  if(!name){alert('Por favor ingresá tu nombre y empresa.');return;}
+  if(!address){alert('Por favor ingresá tu dirección de entrega.');return;}
+  const m=DAYS[currentDay].menus[selectedIdx];
+  let extra='';
+  if(m.isGesa){
+    const prot=document.getElementById('gesaProt');
+    const guar=document.getElementById('gesaGuar');
+    if(prot&&guar) extra=`\n*Proteína:* ${prot.value}\n*Guarnición:* ${guar.value}`;
+  }
+  let msg=`🍽️ *Nuevo pedido GESA*\n\n`;
+  msg+=`*Menú:* ${m.name}\n`;
+  msg+=`*Plato:* ${m.plate}${extra}\n`;
+  msg+=`*Fecha de entrega:* ${DAYS[currentDay].label}\n`;
+  msg+=`*Cantidad:* ${qty} vianda(s)\n\n`;
+  msg+=`*Nombre:* ${name}\n`;
+  msg+=`*Dirección:* ${address}`;
+  window.open('https://wa.me/595994433025?text='+encodeURIComponent(msg),'_blank');
+}
+
+renderMenus();
+</script>
+</body>
+</html>
