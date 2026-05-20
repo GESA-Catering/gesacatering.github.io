@@ -4,249 +4,102 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GESA Catering — Pedidos de la semana</title>
-  <meta name="description" content="Pedí tu vianda semanal de GESA Catering. Menú económico, tradicional, ejecutivo, fit, sugerencia del chef y menú GESA." />
+  <meta name="description" content="Pedí tu vianda semanal de GESA Catering." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Lato', sans-serif; background: #F7F4F0; min-height: 100vh; display: flex; justify-content: center; padding: 0 0 2rem; }
+    .container { width: 100%; max-width: 480px; background: #fff; min-height: 100vh; box-shadow: 0 0 40px rgba(0,0,0,0.08); }
 
-    body {
-      font-family: 'Lato', sans-serif;
-      background: #F7F4F0;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      padding: 0 0 2rem;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 480px;
-      background: #fff;
-      min-height: 100vh;
-      box-shadow: 0 0 40px rgba(0,0,0,0.08);
-    }
-
-    .header {
-      background: #fff;
-      padding: 1.25rem 1.25rem 1rem;
-      border-bottom: 1px solid #EDE9E3;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+    .header { background: #fff; padding: 1.25rem 1.25rem 1rem; border-bottom: 1px solid #EDE9E3; display: flex; align-items: center; gap: 14px; position: sticky; top: 0; z-index: 10; }
     .logo-blocks { display: flex; gap: 3px; }
-    .logo-block {
-      width: 30px; height: 30px;
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 17px; font-weight: 500;
-      color: #F5EFE0; border-radius: 4px;
-    }
-    .lb-g { background: #993333; }
-    .lb-e { background: #CC6633; }
-    .lb-s { background: #889944; }
-    .lb-a { background: #CC9933; }
+    .logo-block { width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 500; color: #F5EFE0; border-radius: 4px; }
+    .lb-g { background: #993333; } .lb-e { background: #CC6633; } .lb-s { background: #889944; } .lb-a { background: #CC9933; }
     .header-text { flex: 1; }
     .header-title { font-size: 15px; font-weight: 700; color: #1A1A1A; line-height: 1.2; }
     .header-sub { font-size: 12px; color: #888; margin-top: 2px; }
 
-    .day-tabs {
-      display: flex;
-      overflow-x: auto;
-      padding: 0.85rem 1.25rem 0;
-      gap: 8px;
-      border-bottom: 1px solid #EDE9E3;
-      scrollbar-width: none;
-    }
+    .day-tabs { display: flex; overflow-x: auto; padding: 0.85rem 1.25rem 0; gap: 8px; border-bottom: 1px solid #EDE9E3; scrollbar-width: none; }
     .day-tabs::-webkit-scrollbar { display: none; }
-    .day-tab {
-      flex-shrink: 0;
-      padding: 7px 16px;
-      border-radius: 20px;
-      border: 1px solid #DDD;
-      font-size: 13px; font-weight: 400;
-      background: #fff; color: #666;
-      cursor: pointer;
-      transition: all 0.15s;
-      margin-bottom: 0.85rem;
-      position: relative;
-    }
+    .day-tab { flex-shrink: 0; padding: 7px 16px; border-radius: 20px; border: 1px solid #DDD; font-size: 13px; font-weight: 400; background: #fff; color: #666; cursor: pointer; transition: all 0.15s; margin-bottom: 0.85rem; position: relative; }
     .day-tab.active { background: #993333; color: #fff; border-color: #993333; font-weight: 700; }
     .day-tab:hover:not(.active) { border-color: #999; color: #333; }
-    .tab-dot {
-      position: absolute;
-      top: -3px; right: -3px;
-      width: 9px; height: 9px;
-      background: #25D366;
-      border-radius: 50%;
-      border: 2px solid #fff;
-    }
+    .tab-dot { position: absolute; top: -3px; right: -3px; width: 9px; height: 9px; background: #25D366; border-radius: 50%; border: 2px solid #fff; }
 
     .menus-section { padding: 1rem 1.25rem 0; }
-    .section-label {
-      font-size: 11px; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.08em;
-      color: #999; margin-bottom: 10px;
-    }
+    .section-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #999; margin-bottom: 10px; }
 
-    .menu-card {
-      border: 1px solid #EDE9E3;
-      border-radius: 12px;
-      padding: 0.9rem 1rem;
-      margin-bottom: 8px;
-      cursor: pointer;
-      background: #fff;
-      transition: border-color 0.15s, box-shadow 0.15s;
-    }
+    .menu-card { border: 1px solid #EDE9E3; border-radius: 12px; padding: 0.9rem 1rem; margin-bottom: 8px; cursor: pointer; background: #fff; transition: border-color 0.15s, box-shadow 0.15s; }
     .menu-card:hover { border-color: #CCC; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
     .menu-card.selected { border: 2px solid #993333; background: #FFF9F9; }
-
     .menu-card-top { display: flex; align-items: flex-start; gap: 12px; }
-
-    .menu-check {
-      width: 22px; height: 22px;
-      border-radius: 6px;
-      border: 1.5px solid #CCC;
-      flex-shrink: 0; margin-top: 2px;
-      display: flex; align-items: center; justify-content: center;
-      transition: all 0.15s; background: #fff;
-    }
+    .menu-check { width: 22px; height: 22px; border-radius: 6px; border: 1.5px solid #CCC; flex-shrink: 0; margin-top: 2px; display: flex; align-items: center; justify-content: center; transition: all 0.15s; background: #fff; }
     .menu-card.selected .menu-check { background: #993333; border-color: #993333; }
-    .menu-card.selected .menu-check::after {
-      content: '✓'; color: white;
-      font-size: 13px; font-weight: 700; line-height: 1;
-    }
-
+    .menu-card.selected .menu-check::after { content: '✓'; color: white; font-size: 13px; font-weight: 700; line-height: 1; }
     .menu-info { flex: 1; min-width: 0; }
-    .menu-top {
-      display: flex; align-items: center;
-      justify-content: space-between;
-      gap: 6px; margin-bottom: 4px;
-    }
-    .menu-badge {
-      font-size: 10px; font-weight: 700;
-      padding: 2px 8px; border-radius: 20px;
-      text-transform: uppercase; letter-spacing: 0.04em;
-    }
+    .menu-top { display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-bottom: 4px; }
+    .menu-badge { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.04em; }
     .badge-economico   { background: #F1EFE8; color: #5F5E5A; }
     .badge-tradicional { background: #FAEEDA; color: #7A4F10; }
     .badge-ejecutivo   { background: #E6F1FB; color: #185FA5; }
     .badge-fit         { background: #EAF3DE; color: #3B6D11; }
     .badge-chef        { background: #FAECE7; color: #993C1D; }
     .badge-gesa        { background: #993333; color: #fff; }
-
     .menu-price { font-size: 13px; font-weight: 700; color: #993333; white-space: nowrap; }
     .menu-name { font-size: 14px; font-weight: 700; color: #1A1A1A; line-height: 1.3; }
     .menu-desc { font-size: 13px; color: #666; margin-top: 3px; line-height: 1.45; }
-    .menu-kcal {
-      display: inline-flex; align-items: center; gap: 4px;
-      font-size: 11px; color: #999; margin-top: 5px;
-      background: #F7F4F0; border-radius: 20px;
-      padding: 2px 8px;
-    }
+    .menu-kcal { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; color: #999; margin-top: 5px; background: #F7F4F0; border-radius: 20px; padding: 2px 8px; }
 
-    .card-qty-row {
-      display: flex; align-items: center; gap: 8px;
-      margin-top: 12px; padding-top: 10px;
-      border-top: 1px solid #F0EBE8;
-    }
+    .card-qty-row { display: flex; align-items: center; gap: 8px; margin-top: 12px; padding-top: 10px; border-top: 1px solid #F0EBE8; }
     .card-qty-label { font-size: 12px; color: #888; flex: 1; }
-    .card-qty-btn {
-      width: 30px; height: 30px; border-radius: 6px;
-      border: 1px solid #DDD; background: #fff;
-      cursor: pointer; font-size: 18px; color: #333;
-      display: flex; align-items: center; justify-content: center;
-      transition: border-color 0.15s;
-    }
+    .card-qty-btn { width: 30px; height: 30px; border-radius: 6px; border: 1px solid #DDD; background: #fff; cursor: pointer; font-size: 18px; color: #333; display: flex; align-items: center; justify-content: center; transition: border-color 0.15s; }
     .card-qty-btn:hover { border-color: #993333; color: #993333; }
     .card-qty-num { font-size: 16px; font-weight: 700; min-width: 20px; text-align: center; color: #1A1A1A; }
     .card-subtotal { font-size: 13px; font-weight: 700; color: #993333; }
 
     .gesa-selects { margin-top: 10px; display: flex; flex-direction: column; gap: 8px; }
     .gesa-label { font-size: 12px; color: #888; margin-bottom: 3px; font-weight: 700; }
-    .gesa-selects select {
-      width: 100%; padding: 8px 10px;
-      border: 1px solid #DDD; border-radius: 8px;
-      font-size: 13px; font-family: 'Lato', sans-serif;
-      color: #1A1A1A; background: #FAFAFA;
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 10px center;
-    }
+    .gesa-selects select { width: 100%; padding: 8px 10px; border: 1px solid #DDD; border-radius: 8px; font-size: 13px; font-family: 'Lato', sans-serif; color: #1A1A1A; background: #FAFAFA; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; }
 
     .form-section { padding: 0.85rem 1.25rem 0; }
     .form-group { margin-bottom: 0.85rem; }
-    .form-label {
-      font-size: 12px; font-weight: 700; color: #666;
-      margin-bottom: 5px; display: block;
-      text-transform: uppercase; letter-spacing: 0.05em;
-    }
-    .form-section input {
-      width: 100%; padding: 10px 12px;
-      border: 1px solid #DDD; border-radius: 8px;
-      font-size: 14px; font-family: 'Lato', sans-serif;
-      color: #1A1A1A; background: #FAFAFA;
-      transition: border-color 0.15s;
-    }
+    .form-label { font-size: 12px; font-weight: 700; color: #666; margin-bottom: 5px; display: block; text-transform: uppercase; letter-spacing: 0.05em; }
+    .form-section input { width: 100%; padding: 10px 12px; border: 1px solid #DDD; border-radius: 8px; font-size: 14px; font-family: 'Lato', sans-serif; color: #1A1A1A; background: #FAFAFA; transition: border-color 0.15s; }
     .form-section input:focus { outline: none; border-color: #993333; background: #fff; }
     .form-section input::placeholder { color: #BBB; }
 
     .cart-wrap { margin: 0.85rem 1.25rem 0; }
-    .cart-box {
-      background: #FBF8F5; border: 1px solid #EDE9E3;
-      border-radius: 10px; padding: 0.9rem 1rem;
-    }
-    .cart-day-title {
-      font-size: 11px; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.08em;
-      color: #993333; margin: 10px 0 6px;
-    }
+    .cart-box { background: #FBF8F5; border: 1px solid #EDE9E3; border-radius: 10px; padding: 0.9rem 1rem; }
+    .cart-day-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #993333; margin: 10px 0 6px; }
     .cart-day-title:first-child { margin-top: 0; }
-    .cart-item-row {
-      display: flex; justify-content: space-between;
-      align-items: flex-start; font-size: 13px; color: #444;
-      padding: 5px 0; border-bottom: 1px solid #F0EBE8;
-    }
+    .cart-item-row { display: flex; justify-content: space-between; align-items: flex-start; font-size: 13px; color: #444; padding: 5px 0; border-bottom: 1px solid #F0EBE8; }
     .cart-item-row:last-of-type { border-bottom: none; }
     .cart-item-name { flex: 1; line-height: 1.4; }
     .cart-item-extra { font-size: 11px; color: #999; display: block; }
     .cart-item-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: 8px; }
     .cart-item-qty { color: #999; font-size: 12px; }
     .cart-item-price { font-weight: 700; color: #1A1A1A; white-space: nowrap; }
-    .cart-total-row {
-      display: flex; justify-content: space-between;
-      font-size: 15px; font-weight: 700; color: #1A1A1A;
-      padding-top: 10px; margin-top: 8px;
-      border-top: 2px solid #993333;
-    }
+    .cart-total-row { display: flex; justify-content: space-between; font-size: 15px; font-weight: 700; color: #1A1A1A; padding-top: 10px; margin-top: 8px; border-top: 2px solid #993333; }
 
-    .btn-wa {
-      display: flex; align-items: center; justify-content: center; gap: 10px;
-      width: calc(100% - 2.5rem);
-      margin: 1rem 1.25rem 0.4rem;
-      padding: 14px;
-      background: #25D366; border: none;
-      border-radius: 12px;
-      font-size: 15px; font-weight: 700;
-      font-family: 'Lato', sans-serif;
-      color: white; cursor: pointer;
-      transition: background 0.15s, transform 0.1s;
-    }
+    /* PAYMENT BOX */
+    .payment-wrap { margin: 0.85rem 1.25rem 0; }
+    .payment-box { background: #F0F7FF; border: 1px solid #C8DFFB; border-radius: 12px; padding: 1rem; }
+    .payment-title { font-size: 13px; font-weight: 700; color: #185FA5; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+    .payment-row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: #444; padding: 5px 0; border-bottom: 1px solid #DCF0FB; }
+    .payment-row:last-of-type { border-bottom: none; }
+    .payment-label { color: #888; font-size: 12px; }
+    .payment-value { font-weight: 700; color: #1A1A1A; text-align: right; font-size: 13px; max-width: 60%; }
+    .copy-row { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; padding-top: 10px; border-top: 1px solid #C8DFFB; }
+    .copy-account { font-size: 18px; font-weight: 700; color: #185FA5; letter-spacing: 1px; }
+    .copy-btn { display: flex; align-items: center; gap: 5px; background: #185FA5; color: white; border: none; border-radius: 8px; padding: 7px 14px; font-size: 12px; font-weight: 700; font-family: 'Lato', sans-serif; cursor: pointer; transition: background 0.15s; white-space: nowrap; }
+    .copy-btn:hover { background: #1250a0; }
+    .copy-btn.copied { background: #25D366; }
+
+    .btn-wa { display: flex; align-items: center; justify-content: center; gap: 10px; width: calc(100% - 2.5rem); margin: 1rem 1.25rem 0.4rem; padding: 14px; background: #25D366; border: none; border-radius: 12px; font-size: 15px; font-weight: 700; font-family: 'Lato', sans-serif; color: white; cursor: pointer; transition: background 0.15s, transform 0.1s; }
     .btn-wa:hover { background: #1fba59; }
     .btn-wa:active { transform: scale(0.98); }
-
-    .footer-note {
-      font-size: 11px; color: #AAA;
-      text-align: center;
-      padding: 0 1.25rem 2rem;
-      line-height: 1.6;
-    }
-
+    .footer-note { font-size: 11px; color: #AAA; text-align: center; padding: 0 1.25rem 2rem; line-height: 1.6; }
     .divider { height: 1px; background: #EDE9E3; margin: 0.85rem 1.25rem 0; }
   </style>
 </head>
@@ -292,97 +145,101 @@
 
   <div id="cartSection"></div>
 
+  <!-- PAYMENT BOX (always visible) -->
+  <div class="payment-wrap">
+    <div class="section-label">Datos para transferencia</div>
+    <div class="payment-box">
+      <div class="payment-title">🏦 Interfisa Banco SAECA</div>
+      <div class="payment-row">
+        <span class="payment-label">Beneficiario</span>
+        <span class="payment-value">GESA EVENTOS &amp; CATERING INTERNACIONAL E.A.S. UNIPERSONAL</span>
+      </div>
+      <div class="payment-row">
+        <span class="payment-label">Moneda</span>
+        <span class="payment-value">Guaraníes (₲)</span>
+      </div>
+      <div class="copy-row">
+        <span class="copy-account">259017498</span>
+        <button class="copy-btn" id="copyBtn" onclick="copyAccount()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          Copiar cuenta
+        </button>
+      </div>
+    </div>
+  </div>
+
   <button class="btn-wa" onclick="sendOrder()">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
     </svg>
     Confirmar pedido por WhatsApp
   </button>
-  <p class="footer-note">Tu pedido llega directo a nuestro equipo<br>Respondemos en minutos · GESA Eventos & Catering</p>
+  <p class="footer-note">Tu pedido llega directo a nuestro equipo<br>Respondemos en minutos · GESA Eventos &amp; Catering</p>
 
 </div>
 
 <script>
-const PROTEINAS = [
-  "Pechuga de pollo grillada","Bife vacuno a la plancha",
-  "Lomo de cerdo a la plancha","Tilapia grillada",
-  "Milanesa de pollo","Milanesa de carne vacuna"
-];
-const GUARNICIONES = [
-  "Ensalada mixta clásica","Puré de papas","Arroz con queso",
-  "Arroz pilaf (blanco)","Spaghetti a la manteca","Ensalada rusa","Ensalada de arroz"
-];
+const PROTEINAS = ["Pechuga de pollo grillada","Bife vacuno a la plancha","Lomo de cerdo a la plancha","Tilapia grillada","Milanesa de pollo","Milanesa de carne vacuna"];
+const GUARNICIONES = ["Ensalada mixta clásica","Puré de papas","Arroz con queso","Arroz pilaf (blanco)","Spaghetti a la manteca","Ensalada rusa","Ensalada de arroz"];
 
-const PRICES = {
-  'Económico': 27000,
-  'Tradicional': 30000,
-  'Fit': 35000,
-  'Ejecutivo': 36000,
-  'Chef': 38000,
-  'GESA': 30000
+const PRICES = { 'Económico':27000, 'Tradicional':30000, 'Fit':35000, 'Ejecutivo':36000, 'Chef':38000, 'GESA':30000 };
+
+const BANK = {
+  banco: 'Interfisa Banco SAECA',
+  cuenta: '259017498',
+  titular: 'GESA EVENTOS & CATERING INTERNACIONAL E.A.S. UNIPERSONAL',
+  moneda: 'Guaraníes (₲)'
 };
 
 const DAYS = [
   { label:"Miércoles 20 de mayo", short:"Miércoles 20", menus:[
     {cat:"Económico", badge:"badge-economico", name:"Menú económico",    plate:"Estofado de pollo con tallarín", kcal:480},
-    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional", plate:"Lomo de cerdo con salsa de mostaza y limón y arroz pilaf aromático", kcal:510},
-    {cat:"Fit",       badge:"badge-fit",        name:"Menú fit",          plate:"Bife vacuno magro con vegetales al vapor", kcal:330},
-    {cat:"Ejecutivo", badge:"badge-ejecutivo",  name:"Menú ejecutivo",    plate:"Pata muslo deshuesado con salsa de champiñones y arroz chino", kcal:560},
+    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",plate:"Lomo de cerdo con salsa de mostaza y limón y arroz pilaf aromático", kcal:510},
+    {cat:"Fit",       badge:"badge-fit",        name:"Menú fit",         plate:"Bife vacuno magro con vegetales al vapor", kcal:330},
+    {cat:"Ejecutivo", badge:"badge-ejecutivo",  name:"Menú ejecutivo",   plate:"Pata muslo deshuesado con salsa de champiñones y arroz chino", kcal:560},
     {cat:"Chef",      badge:"badge-chef",       name:"Sugerencia del chef",plate:"Bife de chorizo con reducción de vino tinto y puré de calabaza", kcal:540},
-    {cat:"GESA",      badge:"badge-gesa",       name:"Menú GESA",         plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
+    {cat:"GESA",      badge:"badge-gesa",       name:"Menú GESA",        plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
   ]},
   { label:"Jueves 21 de mayo", short:"Jueves 21", menus:[
     {cat:"Económico", badge:"badge-economico", name:"Menú económico",    plate:"Guiso de pollo con arroz", kcal:450},
-    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional", plate:"Lasaña napolitana con arroz pilaf aromático", kcal:550},
-    {cat:"Fit",       badge:"badge-fit",        name:"Menú fit",          plate:"Tilapia grillada con ensalada verde, palta y limón", kcal:330},
-    {cat:"Ejecutivo", badge:"badge-ejecutivo",  name:"Menú ejecutivo",    plate:"Chuleta vacuna con salsa madera tinto y papas rústicas al romero", kcal:590},
+    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",plate:"Lasaña napolitana con arroz pilaf aromático", kcal:550},
+    {cat:"Fit",       badge:"badge-fit",        name:"Menú fit",         plate:"Tilapia grillada con ensalada verde, palta y limón", kcal:330},
+    {cat:"Ejecutivo", badge:"badge-ejecutivo",  name:"Menú ejecutivo",   plate:"Chuleta vacuna con salsa madera tinto y papas rústicas al romero", kcal:590},
     {cat:"Chef",      badge:"badge-chef",       name:"Sugerencia del chef",plate:"Escalopes de lomito vacuno con salsa de queso y mostaza y vegetales salteados", kcal:490},
-    {cat:"GESA",      badge:"badge-gesa",       name:"Menú GESA",         plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
+    {cat:"GESA",      badge:"badge-gesa",       name:"Menú GESA",        plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
   ]},
   { label:"Viernes 22 de mayo", short:"Viernes 22", menus:[
     {cat:"Económico", badge:"badge-economico", name:"Menú económico",    plate:"Guiso de fideo con carne", kcal:490},
-    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional", plate:"Milanesa de pollo con ensalada rusa", kcal:560},
-    {cat:"Fit",       badge:"badge-fit",        name:"Menú fit",          plate:"Pechuga de pollo grillada con vegetales salteados", kcal:320},
-    {cat:"Ejecutivo", badge:"badge-ejecutivo",  name:"Menú ejecutivo",    plate:"Bondiola de cerdo con salsa portuguesa y puré de papas", kcal:630},
+    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",plate:"Milanesa de pollo con ensalada rusa", kcal:560},
+    {cat:"Fit",       badge:"badge-fit",        name:"Menú fit",         plate:"Pechuga de pollo grillada con vegetales salteados", kcal:320},
+    {cat:"Ejecutivo", badge:"badge-ejecutivo",  name:"Menú ejecutivo",   plate:"Bondiola de cerdo con salsa portuguesa y puré de papas", kcal:630},
     {cat:"Chef",      badge:"badge-chef",       name:"Sugerencia del chef",plate:"Bife de colita cuadril con salsa de hongos y mix de tubérculos al oliva", kcal:550},
-    {cat:"GESA",      badge:"badge-gesa",       name:"Menú GESA",         plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
+    {cat:"GESA",      badge:"badge-gesa",       name:"Menú GESA",        plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
   ]}
 ];
 
 let currentDay = 0;
 let cart = [];
 
-function fmtPrice(n) {
-  return '₲ ' + n.toLocaleString('es-PY');
-}
+function fmtPrice(n) { return '₲ ' + n.toLocaleString('es-PY'); }
 
-function getCartItem(dayIdx, menuIdx) {
-  return cart.find(i => i.dayIdx === dayIdx && i.menuIdx === menuIdx) || null;
-}
+function getCartItem(dayIdx, menuIdx) { return cart.find(i => i.dayIdx===dayIdx && i.menuIdx===menuIdx) || null; }
 
 function toggleMenu(dayIdx, menuIdx) {
   const existing = getCartItem(dayIdx, menuIdx);
-  if (existing) {
-    cart = cart.filter(i => !(i.dayIdx === dayIdx && i.menuIdx === menuIdx));
-  } else {
+  if (existing) { cart = cart.filter(i => !(i.dayIdx===dayIdx && i.menuIdx===menuIdx)); }
+  else {
     const m = DAYS[dayIdx].menus[menuIdx];
-    cart.push({
-      dayIdx, menuIdx, qty: 1,
-      gesaProt: m.isGesa ? PROTEINAS[0] : null,
-      gesaGuar: m.isGesa ? GUARNICIONES[0] : null
-    });
+    cart.push({ dayIdx, menuIdx, qty:1, gesaProt: m.isGesa ? PROTEINAS[0] : null, gesaGuar: m.isGesa ? GUARNICIONES[0] : null });
   }
-  renderMenus();
-  updateCartSummary();
-  updateTabDots();
+  renderMenus(); updateCartSummary(); updateTabDots();
 }
 
 function changeItemQty(dayIdx, menuIdx, delta) {
   const item = getCartItem(dayIdx, menuIdx);
   if (!item) return;
   item.qty = Math.max(1, Math.min(20, item.qty + delta));
-  renderMenus();
-  updateCartSummary();
+  renderMenus(); updateCartSummary();
 }
 
 function updateGesa(dayIdx, menuIdx, field, value) {
@@ -392,21 +249,28 @@ function updateGesa(dayIdx, menuIdx, field, value) {
 
 function selectDay(i) {
   currentDay = i;
-  document.querySelectorAll('.day-tab').forEach((t, j) => t.classList.toggle('active', i === j));
+  document.querySelectorAll('.day-tab').forEach((t,j) => t.classList.toggle('active', i===j));
   renderMenus();
 }
 
 function updateTabDots() {
   document.querySelectorAll('.day-tab').forEach((tab, i) => {
-    const hasItems = cart.some(c => c.dayIdx === i);
+    const has = cart.some(c => c.dayIdx===i);
     const dot = tab.querySelector('.tab-dot');
-    if (hasItems && !dot) {
-      const d = document.createElement('div');
-      d.className = 'tab-dot';
-      tab.appendChild(d);
-    } else if (!hasItems && dot) {
-      dot.remove();
-    }
+    if (has && !dot) { const d=document.createElement('div'); d.className='tab-dot'; tab.appendChild(d); }
+    else if (!has && dot) { dot.remove(); }
+  });
+}
+
+function copyAccount() {
+  navigator.clipboard.writeText(BANK.cuenta).then(() => {
+    const btn = document.getElementById('copyBtn');
+    btn.classList.add('copied');
+    btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> ¡Copiado!`;
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copiar cuenta`;
+    }, 2500);
   });
 }
 
@@ -417,7 +281,6 @@ function renderMenus() {
     const item = getCartItem(currentDay, i);
     const isSelected = !!item;
     const price = PRICES[m.cat];
-
     const card = document.createElement('div');
     card.className = 'menu-card' + (isSelected ? ' selected' : '');
     card.onclick = () => toggleMenu(currentDay, i);
@@ -425,36 +288,30 @@ function renderMenus() {
     let gesaHtml = '';
     if (m.isGesa && isSelected) {
       gesaHtml = `<div class="gesa-selects" onclick="event.stopPropagation()">
-        <div>
-          <div class="gesa-label">Proteína</div>
-          <select onchange="updateGesa(${currentDay},${i},'gesaProt',this.value)">
-            ${PROTEINAS.map(p => `<option${item.gesaProt===p?' selected':''}>${p}</option>`).join('')}
-          </select>
-        </div>
-        <div>
-          <div class="gesa-label">Guarnición</div>
-          <select onchange="updateGesa(${currentDay},${i},'gesaGuar',this.value)">
-            ${GUARNICIONES.map(g => `<option${item.gesaGuar===g?' selected':''}>${g}</option>`).join('')}
-          </select>
-        </div>
+        <div><div class="gesa-label">Proteína</div>
+        <select onchange="updateGesa(${currentDay},${i},'gesaProt',this.value)">
+          ${PROTEINAS.map(p=>`<option${item.gesaProt===p?' selected':''}>${p}</option>`).join('')}
+        </select></div>
+        <div><div class="gesa-label">Guarnición</div>
+        <select onchange="updateGesa(${currentDay},${i},'gesaGuar',this.value)">
+          ${GUARNICIONES.map(g=>`<option${item.gesaGuar===g?' selected':''}>${g}</option>`).join('')}
+        </select></div>
       </div>`;
     }
 
     let qtyHtml = '';
     if (isSelected) {
-      const subtotal = price ? fmtPrice(price * item.qty) : '';
+      const subtotal = fmtPrice(price * item.qty);
       qtyHtml = `<div class="card-qty-row" onclick="event.stopPropagation()">
         <span class="card-qty-label">Cantidad</span>
         <button class="card-qty-btn" onclick="event.stopPropagation();changeItemQty(${currentDay},${i},-1)">−</button>
         <span class="card-qty-num">${item.qty}</span>
         <button class="card-qty-btn" onclick="event.stopPropagation();changeItemQty(${currentDay},${i},1)">+</button>
-        ${subtotal ? `<span class="card-subtotal">${subtotal}</span>` : ''}
+        <span class="card-subtotal">${subtotal}</span>
       </div>`;
     }
 
-    const kcalHtml = m.kcal
-      ? `<span class="menu-kcal">🔥 ${m.kcal} kcal</span>`
-      : `<span class="menu-kcal">🔥 varía según elección</span>`;
+    const kcalHtml = m.kcal ? `<span class="menu-kcal">🔥 ${m.kcal} kcal</span>` : `<span class="menu-kcal">🔥 varía según elección</span>`;
 
     card.innerHTML = `
       <div class="menu-card-top">
@@ -471,7 +328,6 @@ function renderMenus() {
         </div>
       </div>
       ${qtyHtml}`;
-
     list.appendChild(card);
   });
 }
@@ -479,47 +335,29 @@ function renderMenus() {
 function updateCartSummary() {
   const section = document.getElementById('cartSection');
   if (cart.length === 0) { section.innerHTML = ''; return; }
-
   const byDay = {};
-  cart.forEach(item => {
-    if (!byDay[item.dayIdx]) byDay[item.dayIdx] = [];
-    byDay[item.dayIdx].push(item);
-  });
-
-  let total = 0;
-  let rows = '';
-
+  cart.forEach(item => { if (!byDay[item.dayIdx]) byDay[item.dayIdx]=[]; byDay[item.dayIdx].push(item); });
+  let total = 0, rows = '';
   Object.keys(byDay).sort((a,b)=>a-b).forEach(dayIdx => {
     rows += `<div class="cart-day-title">${DAYS[dayIdx].short}</div>`;
     byDay[dayIdx].forEach(item => {
       const m = DAYS[item.dayIdx].menus[item.menuIdx];
-      const price = PRICES[m.cat];
-      const t = price * item.qty;
+      const t = PRICES[m.cat] * item.qty;
       total += t;
-      let extra = '';
-      if (m.isGesa && item.gesaProt) {
-        extra = `<span class="cart-item-extra">${item.gesaProt} + ${item.gesaGuar}</span>`;
-      }
+      let extra = m.isGesa && item.gesaProt ? `<span class="cart-item-extra">${item.gesaProt} + ${item.gesaGuar}</span>` : '';
       rows += `<div class="cart-item-row">
         <span class="cart-item-name">${m.name}${extra}</span>
-        <div class="cart-item-right">
-          <span class="cart-item-qty">×${item.qty}</span>
-          <span class="cart-item-price">${fmtPrice(t)}</span>
-        </div>
+        <div class="cart-item-right"><span class="cart-item-qty">×${item.qty}</span><span class="cart-item-price">${fmtPrice(t)}</span></div>
       </div>`;
     });
   });
-
   section.innerHTML = `
     <div class="divider"></div>
     <div class="cart-wrap">
       <div class="section-label">Tu pedido</div>
       <div class="cart-box">
         ${rows}
-        <div class="cart-total-row">
-          <span>Total</span>
-          <span>${fmtPrice(total)}</span>
-        </div>
+        <div class="cart-total-row"><span>Total</span><span>${fmtPrice(total)}</span></div>
       </div>
     </div>`;
 }
@@ -532,33 +370,30 @@ function sendOrder() {
   if (!address) { alert('Por favor ingresá tu dirección de entrega.'); return; }
 
   const byDay = {};
-  cart.forEach(item => {
-    if (!byDay[item.dayIdx]) byDay[item.dayIdx] = [];
-    byDay[item.dayIdx].push(item);
-  });
+  cart.forEach(item => { if (!byDay[item.dayIdx]) byDay[item.dayIdx]=[]; byDay[item.dayIdx].push(item); });
 
   let total = 0;
-  let msg = `¡Muchas gracias por su preferencia! 🙏\n`;
-  msg += `A continuación el detalle de su pedido:\n\n`;
-  msg += `👤 *${name}*\n`;
-  msg += `📍 *Dirección:* ${address}\n\n`;
+  let msg = `¡Muchas gracias por su preferencia! 🙏\nA continuación el detalle de su pedido:\n\n`;
+  msg += `👤 *${name}*\n📍 *Dirección:* ${address}\n\n`;
 
   Object.keys(byDay).sort((a,b)=>a-b).forEach(dayIdx => {
     msg += `📅 *${DAYS[dayIdx].label}*\n`;
     byDay[dayIdx].forEach(item => {
       const m = DAYS[item.dayIdx].menus[item.menuIdx];
-      const price = PRICES[m.cat];
-      const t = price * item.qty;
+      const t = PRICES[m.cat] * item.qty;
       total += t;
       msg += `  • ${m.name} × ${item.qty} — ${fmtPrice(t)}\n`;
-      if (m.isGesa && item.gesaProt) {
-        msg += `    _Proteína:_ ${item.gesaProt}\n    _Guarnición:_ ${item.gesaGuar}\n`;
-      }
+      if (m.isGesa && item.gesaProt) msg += `    _Proteína:_ ${item.gesaProt}\n    _Guarnición:_ ${item.gesaGuar}\n`;
     });
     msg += '\n';
   });
 
-  msg += `💰 *Total: ${fmtPrice(total)}*\n\n`;
+  msg += `💰 *Total a transferir: ${fmtPrice(total)}*\n\n`;
+  msg += `🏦 *Datos bancarios:*\n`;
+  msg += `  Banco: ${BANK.banco}\n`;
+  msg += `  Cuenta: *${BANK.cuenta}*\n`;
+  msg += `  Titular: ${BANK.titular}\n`;
+  msg += `  Moneda: ${BANK.moneda}\n\n`;
   msg += `_En breve nos comunicamos para confirmar su entrega. — GESA Eventos & Catering_`;
 
   window.open('https://wa.me/595994433025?text=' + encodeURIComponent(msg), '_blank');
