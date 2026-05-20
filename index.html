@@ -27,7 +27,6 @@
       box-shadow: 0 0 40px rgba(0,0,0,0.08);
     }
 
-    /* HEADER */
     .header {
       background: #fff;
       padding: 1.25rem 1.25rem 1rem;
@@ -55,7 +54,6 @@
     .header-title { font-size: 15px; font-weight: 700; color: #1A1A1A; line-height: 1.2; }
     .header-sub { font-size: 12px; color: #888; margin-top: 2px; }
 
-    /* DAY TABS */
     .day-tabs {
       display: flex;
       overflow-x: auto;
@@ -88,7 +86,6 @@
       border: 2px solid #fff;
     }
 
-    /* MENUS */
     .menus-section { padding: 1rem 1.25rem 0; }
     .section-label {
       font-size: 11px; font-weight: 700;
@@ -108,29 +105,20 @@
     .menu-card:hover { border-color: #CCC; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
     .menu-card.selected { border: 2px solid #993333; background: #FFF9F9; }
 
-    .menu-card-top {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-    }
+    .menu-card-top { display: flex; align-items: flex-start; gap: 12px; }
 
     .menu-check {
       width: 22px; height: 22px;
       border-radius: 6px;
       border: 1.5px solid #CCC;
-      flex-shrink: 0;
-      margin-top: 2px;
+      flex-shrink: 0; margin-top: 2px;
       display: flex; align-items: center; justify-content: center;
-      transition: all 0.15s;
-      background: #fff;
+      transition: all 0.15s; background: #fff;
     }
     .menu-card.selected .menu-check { background: #993333; border-color: #993333; }
     .menu-card.selected .menu-check::after {
-      content: '✓';
-      color: white;
-      font-size: 13px;
-      font-weight: 700;
-      line-height: 1;
+      content: '✓'; color: white;
+      font-size: 13px; font-weight: 700; line-height: 1;
     }
 
     .menu-info { flex: 1; min-width: 0; }
@@ -152,25 +140,25 @@
     .badge-gesa        { background: #993333; color: #fff; }
 
     .menu-price { font-size: 13px; font-weight: 700; color: #993333; white-space: nowrap; }
-    .menu-price-consult { font-size: 11px; color: #BBB; white-space: nowrap; }
     .menu-name { font-size: 14px; font-weight: 700; color: #1A1A1A; line-height: 1.3; }
     .menu-desc { font-size: 13px; color: #666; margin-top: 3px; line-height: 1.45; }
+    .menu-kcal {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 11px; color: #999; margin-top: 5px;
+      background: #F7F4F0; border-radius: 20px;
+      padding: 2px 8px;
+    }
 
-    /* QTY ON CARD */
     .card-qty-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 12px;
-      padding-top: 10px;
+      display: flex; align-items: center; gap: 8px;
+      margin-top: 12px; padding-top: 10px;
       border-top: 1px solid #F0EBE8;
     }
     .card-qty-label { font-size: 12px; color: #888; flex: 1; }
     .card-qty-btn {
-      width: 30px; height: 30px;
-      border-radius: 6px; border: 1px solid #DDD;
-      background: #fff; cursor: pointer;
-      font-size: 18px; color: #333;
+      width: 30px; height: 30px; border-radius: 6px;
+      border: 1px solid #DDD; background: #fff;
+      cursor: pointer; font-size: 18px; color: #333;
       display: flex; align-items: center; justify-content: center;
       transition: border-color 0.15s;
     }
@@ -178,7 +166,6 @@
     .card-qty-num { font-size: 16px; font-weight: 700; min-width: 20px; text-align: center; color: #1A1A1A; }
     .card-subtotal { font-size: 13px; font-weight: 700; color: #993333; }
 
-    /* GESA SELECTS */
     .gesa-selects { margin-top: 10px; display: flex; flex-direction: column; gap: 8px; }
     .gesa-label { font-size: 12px; color: #888; margin-bottom: 3px; font-weight: 700; }
     .gesa-selects select {
@@ -192,7 +179,6 @@
       background-position: right 10px center;
     }
 
-    /* FORM */
     .form-section { padding: 0.85rem 1.25rem 0; }
     .form-group { margin-bottom: 0.85rem; }
     .form-label {
@@ -210,13 +196,10 @@
     .form-section input:focus { outline: none; border-color: #993333; background: #fff; }
     .form-section input::placeholder { color: #BBB; }
 
-    /* CART SUMMARY */
     .cart-wrap { margin: 0.85rem 1.25rem 0; }
     .cart-box {
-      background: #FBF8F5;
-      border: 1px solid #EDE9E3;
-      border-radius: 10px;
-      padding: 0.9rem 1rem;
+      background: #FBF8F5; border: 1px solid #EDE9E3;
+      border-radius: 10px; padding: 0.9rem 1rem;
     }
     .cart-day-title {
       font-size: 11px; font-weight: 700;
@@ -227,8 +210,7 @@
     .cart-item-row {
       display: flex; justify-content: space-between;
       align-items: flex-start; font-size: 13px; color: #444;
-      padding: 5px 0;
-      border-bottom: 1px solid #F0EBE8;
+      padding: 5px 0; border-bottom: 1px solid #F0EBE8;
     }
     .cart-item-row:last-of-type { border-bottom: none; }
     .cart-item-name { flex: 1; line-height: 1.4; }
@@ -243,7 +225,6 @@
       border-top: 2px solid #993333;
     }
 
-    /* BUTTON */
     .btn-wa {
       display: flex; align-items: center; justify-content: center; gap: 10px;
       width: calc(100% - 2.5rem);
@@ -338,38 +319,38 @@ const PRICES = {
   'Fit': 35000,
   'Ejecutivo': 36000,
   'Chef': 38000,
-  'GESA': null
+  'GESA': 30000
 };
 
 const DAYS = [
   { label:"Miércoles 20 de mayo", short:"Miércoles 20", menus:[
-    {cat:"Económico", badge:"badge-economico", name:"Menú económico",    plate:"Estofado de pollo con tallarín"},
-    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional", plate:"Lomo de cerdo con salsa de mostaza y limón y arroz pilaf aromático"},
-    {cat:"Fit",       badge:"badge-fit",        name:"Menú fit",          plate:"Bife vacuno magro con vegetales al vapor"},
-    {cat:"Ejecutivo", badge:"badge-ejecutivo",  name:"Menú ejecutivo",    plate:"Pata muslo deshuesado con salsa de champiñones y arroz chino"},
-    {cat:"Chef",      badge:"badge-chef",       name:"Sugerencia del chef",plate:"Bife de chorizo con reducción de vino tinto y puré de calabaza"},
-    {cat:"GESA",      badge:"badge-gesa",       name:"Menú GESA",         plate:"Tu elección de proteína y guarnición", isGesa:true}
+    {cat:"Económico", badge:"badge-economico", name:"Menú económico",    plate:"Estofado de pollo con tallarín", kcal:480},
+    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional", plate:"Lomo de cerdo con salsa de mostaza y limón y arroz pilaf aromático", kcal:510},
+    {cat:"Fit",       badge:"badge-fit",        name:"Menú fit",          plate:"Bife vacuno magro con vegetales al vapor", kcal:330},
+    {cat:"Ejecutivo", badge:"badge-ejecutivo",  name:"Menú ejecutivo",    plate:"Pata muslo deshuesado con salsa de champiñones y arroz chino", kcal:560},
+    {cat:"Chef",      badge:"badge-chef",       name:"Sugerencia del chef",plate:"Bife de chorizo con reducción de vino tinto y puré de calabaza", kcal:540},
+    {cat:"GESA",      badge:"badge-gesa",       name:"Menú GESA",         plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
   ]},
   { label:"Jueves 21 de mayo", short:"Jueves 21", menus:[
-    {cat:"Económico", badge:"badge-economico", name:"Menú económico",    plate:"Guiso de pollo con arroz"},
-    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional", plate:"Lasaña napolitana con arroz pilaf aromático"},
-    {cat:"Fit",       badge:"badge-fit",        name:"Menú fit",          plate:"Tilapia grillada con ensalada verde, palta y limón"},
-    {cat:"Ejecutivo", badge:"badge-ejecutivo",  name:"Menú ejecutivo",    plate:"Chuleta vacuna con salsa madera tinto y papas rústicas al romero"},
-    {cat:"Chef",      badge:"badge-chef",       name:"Sugerencia del chef",plate:"Escalopes de lomito vacuno con salsa de queso y mostaza y vegetales salteados"},
-    {cat:"GESA",      badge:"badge-gesa",       name:"Menú GESA",         plate:"Tu elección de proteína y guarnición", isGesa:true}
+    {cat:"Económico", badge:"badge-economico", name:"Menú económico",    plate:"Guiso de pollo con arroz", kcal:450},
+    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional", plate:"Lasaña napolitana con arroz pilaf aromático", kcal:550},
+    {cat:"Fit",       badge:"badge-fit",        name:"Menú fit",          plate:"Tilapia grillada con ensalada verde, palta y limón", kcal:330},
+    {cat:"Ejecutivo", badge:"badge-ejecutivo",  name:"Menú ejecutivo",    plate:"Chuleta vacuna con salsa madera tinto y papas rústicas al romero", kcal:590},
+    {cat:"Chef",      badge:"badge-chef",       name:"Sugerencia del chef",plate:"Escalopes de lomito vacuno con salsa de queso y mostaza y vegetales salteados", kcal:490},
+    {cat:"GESA",      badge:"badge-gesa",       name:"Menú GESA",         plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
   ]},
   { label:"Viernes 22 de mayo", short:"Viernes 22", menus:[
-    {cat:"Económico", badge:"badge-economico", name:"Menú económico",    plate:"Guiso de fideo con carne"},
-    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional", plate:"Milanesa de pollo con ensalada rusa"},
-    {cat:"Fit",       badge:"badge-fit",        name:"Menú fit",          plate:"Pechuga de pollo grillada con vegetales salteados"},
-    {cat:"Ejecutivo", badge:"badge-ejecutivo",  name:"Menú ejecutivo",    plate:"Bondiola de cerdo con salsa portuguesa y puré de papas"},
-    {cat:"Chef",      badge:"badge-chef",       name:"Sugerencia del chef",plate:"Bife de colita cuadril con salsa de hongos y mix de tubérculos al oliva"},
-    {cat:"GESA",      badge:"badge-gesa",       name:"Menú GESA",         plate:"Tu elección de proteína y guarnición", isGesa:true}
+    {cat:"Económico", badge:"badge-economico", name:"Menú económico",    plate:"Guiso de fideo con carne", kcal:490},
+    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional", plate:"Milanesa de pollo con ensalada rusa", kcal:560},
+    {cat:"Fit",       badge:"badge-fit",        name:"Menú fit",          plate:"Pechuga de pollo grillada con vegetales salteados", kcal:320},
+    {cat:"Ejecutivo", badge:"badge-ejecutivo",  name:"Menú ejecutivo",    plate:"Bondiola de cerdo con salsa portuguesa y puré de papas", kcal:630},
+    {cat:"Chef",      badge:"badge-chef",       name:"Sugerencia del chef",plate:"Bife de colita cuadril con salsa de hongos y mix de tubérculos al oliva", kcal:550},
+    {cat:"GESA",      badge:"badge-gesa",       name:"Menú GESA",         plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
   ]}
 ];
 
 let currentDay = 0;
-let cart = []; // [{dayIdx, menuIdx, qty, gesaProt, gesaGuar}]
+let cart = [];
 
 function fmtPrice(n) {
   return '₲ ' + n.toLocaleString('es-PY');
@@ -441,7 +422,6 @@ function renderMenus() {
     card.className = 'menu-card' + (isSelected ? ' selected' : '');
     card.onclick = () => toggleMenu(currentDay, i);
 
-    // GESA selects (only when selected)
     let gesaHtml = '';
     if (m.isGesa && isSelected) {
       gesaHtml = `<div class="gesa-selects" onclick="event.stopPropagation()">
@@ -460,7 +440,6 @@ function renderMenus() {
       </div>`;
     }
 
-    // Qty row (only when selected)
     let qtyHtml = '';
     if (isSelected) {
       const subtotal = price ? fmtPrice(price * item.qty) : '';
@@ -473,18 +452,21 @@ function renderMenus() {
       </div>`;
     }
 
+    const kcalHtml = m.kcal
+      ? `<span class="menu-kcal">🔥 ${m.kcal} kcal</span>`
+      : `<span class="menu-kcal">🔥 varía según elección</span>`;
+
     card.innerHTML = `
       <div class="menu-card-top">
         <div class="menu-check"></div>
         <div class="menu-info">
           <div class="menu-top">
             <span class="menu-badge ${m.badge}">${m.cat}</span>
-            ${price
-              ? `<span class="menu-price">${fmtPrice(price)}</span>`
-              : `<span class="menu-price-consult">A consultar</span>`}
+            <span class="menu-price">${fmtPrice(price)}</span>
           </div>
           <div class="menu-name">${m.name}</div>
           <div class="menu-desc">${m.plate}</div>
+          ${kcalHtml}
           ${gesaHtml}
         </div>
       </div>
@@ -505,7 +487,6 @@ function updateCartSummary() {
   });
 
   let total = 0;
-  let hasUnpriced = false;
   let rows = '';
 
   Object.keys(byDay).sort((a,b)=>a-b).forEach(dayIdx => {
@@ -513,15 +494,8 @@ function updateCartSummary() {
     byDay[dayIdx].forEach(item => {
       const m = DAYS[item.dayIdx].menus[item.menuIdx];
       const price = PRICES[m.cat];
-      let priceStr = '';
-      if (price) {
-        const t = price * item.qty;
-        total += t;
-        priceStr = fmtPrice(t);
-      } else {
-        hasUnpriced = true;
-        priceStr = 'A consultar';
-      }
+      const t = price * item.qty;
+      total += t;
       let extra = '';
       if (m.isGesa && item.gesaProt) {
         extra = `<span class="cart-item-extra">${item.gesaProt} + ${item.gesaGuar}</span>`;
@@ -530,15 +504,11 @@ function updateCartSummary() {
         <span class="cart-item-name">${m.name}${extra}</span>
         <div class="cart-item-right">
           <span class="cart-item-qty">×${item.qty}</span>
-          <span class="cart-item-price">${priceStr}</span>
+          <span class="cart-item-price">${fmtPrice(t)}</span>
         </div>
       </div>`;
     });
   });
-
-  const totalStr = total > 0
-    ? fmtPrice(total) + (hasUnpriced ? ' + a consultar' : '')
-    : (hasUnpriced ? 'A consultar' : '—');
 
   section.innerHTML = `
     <div class="divider"></div>
@@ -548,7 +518,7 @@ function updateCartSummary() {
         ${rows}
         <div class="cart-total-row">
           <span>Total</span>
-          <span>${totalStr}</span>
+          <span>${fmtPrice(total)}</span>
         </div>
       </div>
     </div>`;
@@ -568,33 +538,28 @@ function sendOrder() {
   });
 
   let total = 0;
-  let hasUnpriced = false;
-  let msg = `🍽️ *Nuevo pedido GESA*\n\n`;
-  msg += `*Nombre:* ${name}\n`;
-  msg += `*Dirección:* ${address}\n\n`;
+  let msg = `¡Muchas gracias por su preferencia! 🙏\n`;
+  msg += `A continuación el detalle de su pedido:\n\n`;
+  msg += `👤 *${name}*\n`;
+  msg += `📍 *Dirección:* ${address}\n\n`;
 
   Object.keys(byDay).sort((a,b)=>a-b).forEach(dayIdx => {
     msg += `📅 *${DAYS[dayIdx].label}*\n`;
     byDay[dayIdx].forEach(item => {
       const m = DAYS[item.dayIdx].menus[item.menuIdx];
       const price = PRICES[m.cat];
-      msg += `  • ${m.name} × ${item.qty}`;
+      const t = price * item.qty;
+      total += t;
+      msg += `  • ${m.name} × ${item.qty} — ${fmtPrice(t)}\n`;
       if (m.isGesa && item.gesaProt) {
-        msg += `\n    _Proteína:_ ${item.gesaProt}\n    _Guarnición:_ ${item.gesaGuar}`;
+        msg += `    _Proteína:_ ${item.gesaProt}\n    _Guarnición:_ ${item.gesaGuar}\n`;
       }
-      if (price) {
-        const t = price * item.qty;
-        total += t;
-        msg += ` — ${fmtPrice(t)}`;
-      } else {
-        hasUnpriced = true;
-      }
-      msg += '\n';
     });
     msg += '\n';
   });
 
-  msg += `💰 *Total: ${fmtPrice(total)}${hasUnpriced ? ' + a consultar' : ''}*`;
+  msg += `💰 *Total: ${fmtPrice(total)}*\n\n`;
+  msg += `_En breve nos comunicamos para confirmar su entrega. — GESA Eventos & Catering_`;
 
   window.open('https://wa.me/595994433025?text=' + encodeURIComponent(msg), '_blank');
 }
