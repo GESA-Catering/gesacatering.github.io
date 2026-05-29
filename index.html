@@ -103,17 +103,17 @@
       <div class="logo-block lb-a">A</div>
     </div>
     <div class="header-text">
-      <div class="header-title">Pedidos — semana del 25 al 29 de mayo</div>
+      <div class="header-title">Pedidos — semana del 1 al 5 de junio</div>
       <div class="header-sub">Pedidos hasta las 10:00 am del día anterior</div>
     </div>
   </div>
 
   <div class="day-tabs" id="dayTabs">
-    <div class="day-tab active" onclick="selectDay(0)">Lunes 25</div>
-    <div class="day-tab" onclick="selectDay(1)">Martes 26</div>
-    <div class="day-tab" onclick="selectDay(2)">Miércoles 27</div>
-    <div class="day-tab" onclick="selectDay(3)">Jueves 28</div>
-    <div class="day-tab" onclick="selectDay(4)">Viernes 29</div>
+    <div class="day-tab active" onclick="selectDay(0)">Lunes 1</div>
+    <div class="day-tab" onclick="selectDay(1)">Martes 2</div>
+    <div class="day-tab" onclick="selectDay(2)">Miércoles 3</div>
+    <div class="day-tab" onclick="selectDay(3)">Jueves 4</div>
+    <div class="day-tab" onclick="selectDay(4)">Viernes 5</div>
   </div>
 
   <div class="menus-section">
@@ -171,82 +171,72 @@
 <script>
 const PROTEINAS = ["Pechuga de pollo grillada","Bife vacuno a la plancha","Lomo de cerdo a la plancha","Tilapia grillada","Milanesa de pollo","Milanesa de carne vacuna"];
 const GUARNICIONES = ["Ensalada mixta clásica","Puré de papas","Arroz con queso","Arroz pilaf (blanco)","Spaghetti a la manteca","Ensalada rusa","Ensalada de arroz"];
-
 const PRICES = { 'Económico':27000,'Tradicional':30000,'Fit':35000,'Ejecutivo':36000,'Chef':38000,'GESA':30000 };
-
 const BANK = { banco:'Interfisa Banco SAECA', cuenta:'259017498', titular:'GESA EVENTOS & CATERING INTERNACIONAL E.A.S. UNIPERSONAL', moneda:'Guaraníes (₲)' };
 
 const DAYS = [
-  { label:"Lunes 25 de mayo", short:"Lunes 25", menus:[
-    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Milanesa de pollo con arroz pilaf y mini ensalada", kcal:640},
-    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Bife a caballo con puré de papa y mini ensalada", kcal:720},
-    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Tilapia al horno al limón con zucchini y brócoli al vapor", kcal:480},
-    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Milanesa de carne vacuna a la napolitana con papas al horno y mini ensalada", kcal:760},
-    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Bife de chorizo con salsa de champiñones, puré de calabaza y mini ensalada completa", kcal:820},
+  { label:"Lunes 1 de junio", short:"Lunes 1", menus:[
+    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Vori vori de pollo con ensalada mixta clásica", kcal:530},
+    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Bife a caballo con arroz con queso", kcal:650},
+    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Pechuga de pollo grillada con ensalada verde y palta", kcal:480},
+    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Lasaña de carne con ensalada de vegetales al vapor", kcal:710},
+    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Bondiola de cerdo a la miel y limón con ensalada alemana del chef", kcal:520},
     {cat:"GESA",       badge:"badge-gesa",        name:"Menú GESA",          plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
   ]},
-  { label:"Martes 26 de mayo", short:"Martes 26", menus:[
-    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Tortilla española con chorizo y ensalada coleslaw", kcal:610},
-    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Pollo frito con papas fritas y mini ensalada", kcal:750},
-    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Wok de carne vacuna con vegetales mixtos", kcal:520},
-    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Bondiola a la portuguesa con espinaca a la florentina y mini ensalada", kcal:790},
-    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Lomito relleno con salsa al vino tinto, mix de tubérculos y mini ensalada", kcal:830},
+  { label:"Martes 2 de junio", short:"Martes 2", menus:[
+    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Guiso de arroz con carne vacuna", kcal:550},
+    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Pollo al limón con papas al vapor", kcal:620},
+    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Pescado a la plancha con ensalada de vegetales al vapor", kcal:470},
+    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Costilla de cerdo a la barbacoa al horno con papas hasselback a la mostaza dulce", kcal:690},
+    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Milanesa de carne a la napolitana con ensalada rusa", kcal:510},
     {cat:"GESA",       badge:"badge-gesa",        name:"Menú GESA",          plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
   ]},
-  { label:"Miércoles 27 de mayo", short:"Miércoles 27", menus:[
-    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Estofado de carne con polenta", kcal:640},
-    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Ravioli de carne con salsa rosada y mini ensalada", kcal:700},
-    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Pechuga de pollo a la naranja con ensalada verde y palta", kcal:470},
-    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Pechuga rellena con salsa al curry, brócoli y coliflor al vapor y mini ensalada de repollo", kcal:680},
-    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Chupín de tilapia con vegetales al vapor y mini ensalada completa", kcal:560},
+  { label:"Miércoles 3 de junio", short:"Miércoles 3", menus:[
+    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Sopa de pescado y ensalada de repollo", kcal:560},
+    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Ravioles de carne con salsa pomodoro", kcal:640},
+    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Bife vacuno al grill con arroz integral con hierbas", kcal:460},
+    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Pechuga a la napolitana con soufflé de arroz", kcal:700},
+    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Moqueca de pescado con arroz al ajo y limón", kcal:520},
     {cat:"GESA",       badge:"badge-gesa",        name:"Menú GESA",          plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
   ]},
-  { label:"Jueves 28 de mayo", short:"Jueves 28", menus:[
-    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Milanesa de pescado con ensalada de papa", kcal:620},
-    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Bondiola de cerdo a la barbacoa con arroz pilaf y mini ensalada", kcal:780},
-    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Bife vacuno a la plancha con vegetales grillados", kcal:580},
-    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Lomito de cerdo con salsa de queso y mostaza, puré de batata y mini ensalada de arroz", kcal:760},
-    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Lasaña napolitana con arroz cremoso y mini ensalada completa", kcal:810},
+  { label:"Jueves 4 de junio", short:"Jueves 4", menus:[
+    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Estofado de pollo con tallarín", kcal:540},
+    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Sopa de poroto y cerdo con ensalada", kcal:610},
+    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Bife de lomo a la portuguesa con fideo integral", kcal:480},
+    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Chupín de pescado con papas gratinadas", kcal:670},
+    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Canelones de pollo catupiry y ensalada de las 4 estaciones", kcal:510},
     {cat:"GESA",       badge:"badge-gesa",        name:"Menú GESA",          plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
   ]},
-  { label:"Viernes 29 de mayo", short:"Viernes 29", menus:[
-    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Canelones de pollo con salsa rosada y mini ensalada", kcal:690},
-    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Chupín de pescado con ensalada de arroz clásica", kcal:540},
-    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Pollo salteado fit con espinaca y champiñones", kcal:480},
-    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Tilapia al papillote con arroz pilaf a la crema y mini ensalada", kcal:500},
-    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Beef Bourguignon con papas a la francesa y mini ensalada coleslaw", kcal:850},
+  { label:"Viernes 5 de junio", short:"Viernes 5", menus:[
+    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Cerdo desmechado con polenta", kcal:550},
+    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Milanesa de pescado y arroz azafranado", kcal:630},
+    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Lomo de cerdo al limón con puré de batata", kcal:470},
+    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Bife de chorizo con puré de papas al oliva y albahaca", kcal:695},
+    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Ravioli de jamón y queso con salsa parisienne", kcal:500},
     {cat:"GESA",       badge:"badge-gesa",        name:"Menú GESA",          plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
   ]}
 ];
 
 let currentDay=0, cart=[];
-
 function fmtPrice(n){ return '₲ '+n.toLocaleString('es-PY'); }
 function getCartItem(d,m){ return cart.find(i=>i.dayIdx===d&&i.menuIdx===m)||null; }
-
 function toggleMenu(dayIdx,menuIdx){
   const ex=getCartItem(dayIdx,menuIdx);
   if(ex){ cart=cart.filter(i=>!(i.dayIdx===dayIdx&&i.menuIdx===menuIdx)); }
   else{ const m=DAYS[dayIdx].menus[menuIdx]; cart.push({dayIdx,menuIdx,qty:1,gesaProt:m.isGesa?PROTEINAS[0]:null,gesaGuar:m.isGesa?GUARNICIONES[0]:null}); }
   renderMenus(); updateCartSummary(); updateTabDots();
 }
-
 function changeItemQty(d,m,delta){
   const item=getCartItem(d,m); if(!item)return;
   item.qty=Math.max(1,Math.min(20,item.qty+delta));
   renderMenus(); updateCartSummary();
 }
-
-function updateGesa(d,m,field,val){
-  const item=getCartItem(d,m); if(item){item[field]=val;updateCartSummary();}
-}
-
+function updateGesa(d,m,field,val){ const item=getCartItem(d,m); if(item){item[field]=val;updateCartSummary();} }
 function selectDay(i){
   currentDay=i;
   document.querySelectorAll('.day-tab').forEach((t,j)=>t.classList.toggle('active',i===j));
   renderMenus();
 }
-
 function updateTabDots(){
   document.querySelectorAll('.day-tab').forEach((tab,i)=>{
     const has=cart.some(c=>c.dayIdx===i);
@@ -255,19 +245,14 @@ function updateTabDots(){
     else if(!has&&dot){dot.remove();}
   });
 }
-
 function copyAccount(){
   navigator.clipboard.writeText(BANK.cuenta).then(()=>{
     const btn=document.getElementById('copyBtn');
     btn.classList.add('copied');
     btn.innerHTML=`<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> ¡Copiado!`;
-    setTimeout(()=>{
-      btn.classList.remove('copied');
-      btn.innerHTML=`<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copiar cuenta`;
-    },2500);
+    setTimeout(()=>{ btn.classList.remove('copied'); btn.innerHTML=`<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copiar cuenta`; },2500);
   });
 }
-
 function renderMenus(){
   const list=document.getElementById('menuList');
   list.innerHTML='';
@@ -277,21 +262,13 @@ function renderMenus(){
     const card=document.createElement('div');
     card.className='menu-card'+(isSelected?' selected':'');
     card.onclick=()=>toggleMenu(currentDay,i);
-
     let gesaHtml='';
     if(m.isGesa&&isSelected){
       gesaHtml=`<div class="gesa-selects" onclick="event.stopPropagation()">
-        <div><div class="gesa-label">Proteína</div>
-        <select onchange="updateGesa(${currentDay},${i},'gesaProt',this.value)">
-          ${PROTEINAS.map(p=>`<option${item.gesaProt===p?' selected':''}>${p}</option>`).join('')}
-        </select></div>
-        <div><div class="gesa-label">Guarnición</div>
-        <select onchange="updateGesa(${currentDay},${i},'gesaGuar',this.value)">
-          ${GUARNICIONES.map(g=>`<option${item.gesaGuar===g?' selected':''}>${g}</option>`).join('')}
-        </select></div>
+        <div><div class="gesa-label">Proteína</div><select onchange="updateGesa(${currentDay},${i},'gesaProt',this.value)">${PROTEINAS.map(p=>`<option${item.gesaProt===p?' selected':''}>${p}</option>`).join('')}</select></div>
+        <div><div class="gesa-label">Guarnición</div><select onchange="updateGesa(${currentDay},${i},'gesaGuar',this.value)">${GUARNICIONES.map(g=>`<option${item.gesaGuar===g?' selected':''}>${g}</option>`).join('')}</select></div>
       </div>`;
     }
-
     let qtyHtml='';
     if(isSelected){
       qtyHtml=`<div class="card-qty-row" onclick="event.stopPropagation()">
@@ -302,26 +279,11 @@ function renderMenus(){
         <span class="card-subtotal">${fmtPrice(PRICES[m.cat]*item.qty)}</span>
       </div>`;
     }
-
     const kcalHtml=m.kcal?`<span class="menu-kcal">🔥 ${m.kcal} kcal</span>`:`<span class="menu-kcal">🔥 varía según elección</span>`;
-
-    card.innerHTML=`
-      <div class="menu-card-top">
-        <div class="menu-check"></div>
-        <div class="menu-info">
-          <div class="menu-top">
-            <span class="menu-badge ${m.badge}">${m.cat}</span>
-            <span class="menu-price">${fmtPrice(PRICES[m.cat])}</span>
-          </div>
-          <div class="menu-name">${m.name}</div>
-          <div class="menu-desc">${m.plate}</div>
-          ${kcalHtml}${gesaHtml}
-        </div>
-      </div>${qtyHtml}`;
+    card.innerHTML=`<div class="menu-card-top"><div class="menu-check"></div><div class="menu-info"><div class="menu-top"><span class="menu-badge ${m.badge}">${m.cat}</span><span class="menu-price">${fmtPrice(PRICES[m.cat])}</span></div><div class="menu-name">${m.name}</div><div class="menu-desc">${m.plate}</div>${kcalHtml}${gesaHtml}</div></div>${qtyHtml}`;
     list.appendChild(card);
   });
 }
-
 function updateCartSummary(){
   const section=document.getElementById('cartSection');
   if(cart.length===0){section.innerHTML='';return;}
@@ -334,15 +296,11 @@ function updateCartSummary(){
       const m=DAYS[item.dayIdx].menus[item.menuIdx];
       const t=PRICES[m.cat]*item.qty; total+=t;
       let extra=m.isGesa&&item.gesaProt?`<span class="cart-item-extra">${item.gesaProt} + ${item.gesaGuar}</span>`:'';
-      rows+=`<div class="cart-item-row">
-        <span class="cart-item-name">${m.name}${extra}</span>
-        <div class="cart-item-right"><span class="cart-item-qty">×${item.qty}</span><span class="cart-item-price">${fmtPrice(t)}</span></div>
-      </div>`;
+      rows+=`<div class="cart-item-row"><span class="cart-item-name">${m.name}${extra}</span><div class="cart-item-right"><span class="cart-item-qty">×${item.qty}</span><span class="cart-item-price">${fmtPrice(t)}</span></div></div>`;
     });
   });
   section.innerHTML=`<div class="divider"></div><div class="cart-wrap"><div class="section-label">Tu pedido</div><div class="cart-box">${rows}<div class="cart-total-row"><span>Total</span><span>${fmtPrice(total)}</span></div></div></div>`;
 }
-
 function sendOrder(){
   if(cart.length===0){alert('Por favor seleccioná al menos un menú.');return;}
   const name=document.getElementById('nameInput').value.trim();
@@ -365,15 +323,10 @@ function sendOrder(){
     msg+='\n';
   });
   msg+=`💰 *Total a transferir: ${fmtPrice(total)}*\n\n`;
-  msg+=`🏦 *Datos bancarios:*\n`;
-  msg+=`  Banco: ${BANK.banco}\n`;
-  msg+=`  Cuenta: *${BANK.cuenta}*\n`;
-  msg+=`  Titular: ${BANK.titular}\n`;
-  msg+=`  Moneda: ${BANK.moneda}\n\n`;
+  msg+=`🏦 *Datos bancarios:*\n  Banco: ${BANK.banco}\n  Cuenta: *${BANK.cuenta}*\n  Titular: ${BANK.titular}\n  Moneda: ${BANK.moneda}\n\n`;
   msg+=`_En breve nos comunicamos para confirmar su entrega. — GESA Eventos & Catering_`;
   window.open('https://wa.me/595994433025?text='+encodeURIComponent(msg),'_blank');
 }
-
 renderMenus();
 </script>
 </body>
