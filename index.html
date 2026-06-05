@@ -145,6 +145,10 @@
         <span class="payment-value">GESA EVENTOS &amp; CATERING INTERNACIONAL E.A.S. UNIPERSONAL</span>
       </div>
       <div class="payment-row">
+        <span class="payment-label">RUC</span>
+        <span class="payment-value">80155879-4 GESA Eventos &amp; Catering Internacional E.A.S.</span>
+      </div>
+      <div class="payment-row">
         <span class="payment-label">Moneda</span>
         <span class="payment-value">Guaraníes (₲)</span>
       </div>
@@ -172,7 +176,7 @@
 const PROTEINAS = ["Pechuga de pollo grillada","Bife vacuno a la plancha","Lomo de cerdo a la plancha","Tilapia grillada","Milanesa de pollo","Milanesa de carne vacuna"];
 const GUARNICIONES = ["Ensalada mixta clásica","Puré de papas","Arroz con queso","Arroz pilaf (blanco)","Spaghetti a la manteca","Ensalada rusa","Ensalada de arroz"];
 const PRICES = { 'Económico':27000,'Tradicional':30000,'Fit':35000,'Ejecutivo':36000,'Chef':38000,'GESA':30000 };
-const BANK = { banco:'Interfisa Banco SAECA', cuenta:'259017498', titular:'GESA EVENTOS & CATERING INTERNACIONAL E.A.S. UNIPERSONAL', moneda:'Guaraníes (₲)' };
+const BANK = { banco:'Interfisa Banco SAECA', cuenta:'259017498', titular:'GESA EVENTOS & CATERING INTERNACIONAL E.A.S. UNIPERSONAL', moneda:'Guaraníes (₲)', ruc:'80155879-4 GESA Eventos & Catering Internacional E.A.S.' };
 
 const DAYS = [
   { label:"Lunes 8 de junio", short:"Lunes 8", menus:[
@@ -323,7 +327,7 @@ function sendOrder(){
     msg+='\n';
   });
   msg+=`💰 *Total a transferir: ${fmtPrice(total)}*\n\n`;
-  msg+=`🏦 *Datos bancarios:*\n  Banco: ${BANK.banco}\n  Cuenta: *${BANK.cuenta}*\n  Titular: ${BANK.titular}\n  Moneda: ${BANK.moneda}\n\n`;
+  msg+=`🏦 *Datos bancarios:*\n  Banco: ${BANK.banco}\n  Cuenta: *${BANK.cuenta}*\n  Titular: ${BANK.titular}\n  RUC: ${BANK.ruc}\n  Moneda: ${BANK.moneda}\n\n`;
   msg+=`_En breve nos comunicamos para confirmar su entrega. — GESA Eventos & Catering_`;
   window.open('https://wa.me/595994433025?text='+encodeURIComponent(msg),'_blank');
 }
