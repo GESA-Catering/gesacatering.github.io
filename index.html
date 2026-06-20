@@ -88,6 +88,7 @@
     .btn-wa { display: flex; align-items: center; justify-content: center; gap: 10px; width: calc(100% - 2.5rem); margin: 1rem 1.25rem 0.4rem; padding: 14px; background: #25D366; border: none; border-radius: 12px; font-size: 15px; font-weight: 700; font-family: 'Lato', sans-serif; color: white; cursor: pointer; transition: background 0.15s, transform 0.1s; }
     .btn-wa:hover { background: #1fba59; }
     .btn-wa:active { transform: scale(0.98); }
+    .holiday-note { margin: 0.85rem 1.25rem 0; background: #FFF6E5; border: 1px solid #F3DFAE; border-radius: 10px; padding: 10px 14px; font-size: 12px; color: #8A6519; display: flex; align-items: center; gap: 8px; }
     .footer-note { font-size: 11px; color: #AAA; text-align: center; padding: 0 1.25rem 2rem; line-height: 1.6; }
     .divider { height: 1px; background: #EDE9E3; margin: 0.85rem 1.25rem 0; }
   </style>
@@ -103,17 +104,18 @@
       <div class="logo-block lb-a">A</div>
     </div>
     <div class="header-text">
-      <div class="header-title">Pedidos — semana del 15 al 19 de junio</div>
+      <div class="header-title">Pedidos — semana del 22 al 26 de junio</div>
       <div class="header-sub">Pedidos hasta las 10:00 am del día anterior</div>
     </div>
   </div>
 
+  <div class="holiday-note">🎉 El lunes 22 de junio es feriado — sin entregas ese día. Pedidos disponibles de martes a viernes.</div>
+
   <div class="day-tabs" id="dayTabs">
-    <div class="day-tab active" onclick="selectDay(0)">Lunes 15</div>
-    <div class="day-tab" onclick="selectDay(1)">Martes 16</div>
-    <div class="day-tab" onclick="selectDay(2)">Miércoles 17</div>
-    <div class="day-tab" onclick="selectDay(3)">Jueves 18</div>
-    <div class="day-tab" onclick="selectDay(4)">Viernes 19</div>
+    <div class="day-tab active" onclick="selectDay(0)">Martes 23</div>
+    <div class="day-tab" onclick="selectDay(1)">Miércoles 24</div>
+    <div class="day-tab" onclick="selectDay(2)">Jueves 25</div>
+    <div class="day-tab" onclick="selectDay(3)">Viernes 26</div>
   </div>
 
   <div class="menus-section">
@@ -179,44 +181,36 @@ const PRICES = { 'Económico':27000,'Tradicional':30000,'Fit':35000,'Ejecutivo':
 const BANK = { banco:'Interfisa Banco SAECA', cuenta:'259017498', titular:'GESA EVENTOS & CATERING INTERNACIONAL E.A.S. UNIPERSONAL', moneda:'Guaraníes (₲)', ruc:'80155879-4 GESA Eventos & Catering Internacional E.A.S.' };
 
 const DAYS = [
-  { label:"Lunes 15 de junio", short:"Lunes 15", menus:[
-    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Milanesa de pollo con puré de papa", kcal:620},
-    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Picadito de carne con reviro mestizo", kcal:680},
-    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Pechuga grillada con ensalada del chef", kcal:450},
-    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Lasaña de carne con arroz pilaf", kcal:720},
-    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Lomito de cerdo a la portuguesa con mix de tubérculos alioli", kcal:690},
+  { label:"Martes 23 de junio", short:"Martes 23", menus:[
+    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Guiso de arroz con carne vacuna (Nacional)", kcal:560},
+    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Pollo a la portuguesa con papas a las hierbas", kcal:660},
+    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Pescado grill al limón con ensalada del chef", kcal:420},
+    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Lomo de cerdo con salsa agridulce y arroz chino (China)", kcal:690},
+    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Lomito vacuno con salsa madera y mix de tubérculos", kcal:680},
     {cat:"GESA",       badge:"badge-gesa",        name:"Menú GESA",          plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
   ]},
-  { label:"Martes 16 de junio", short:"Martes 16", menus:[
-    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Bife koygua con arroz con queso", kcal:600},
-    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Lomo saltado con papas fritas (Perú)", kcal:760},
-    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Tilapia en salsa verde con ensalada mixta al vapor", kcal:400},
-    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Bondiola de cerdo al ajillo con puré de batata y cebollita", kcal:710},
-    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Strogonoff de carne con arroz pilaf y papas paille", kcal:760},
+  { label:"Miércoles 24 de junio", short:"Miércoles 24", menus:[
+    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Caldo de pescado y ensalada de repollo (Nacional)", kcal:480},
+    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Ñoquis con salsa parisienne y mini ensalada verde", kcal:600},
+    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Bifecitos de lomo con mix de vegetales al vapor", kcal:450},
+    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Pechuga rellena con salsa veloutte y coliflor y brócoli a la crema", kcal:650},
+    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Bife alemán con soufflé de arroz y queso (Alemania)", kcal:700},
     {cat:"GESA",       badge:"badge-gesa",        name:"Menú GESA",          plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
   ]},
-  { label:"Miércoles 17 de junio", short:"Miércoles 17", menus:[
-    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Milanesa de pescado con ensalada de arroz agridulce", kcal:560},
-    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Guiso de fideo con pollo", kcal:580},
-    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Wok de carne vacuna y vegetales mixtos (oriental)", kcal:470},
-    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Pechuga de pollo en salsa suprema y papa a la crema", kcal:650},
-    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Tilapia al pomodoro con vegetales a la manteca (Italia)", kcal:520},
+  { label:"Jueves 25 de junio", short:"Jueves 25", menus:[
+    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Ravioli de carne con salsa pomodoro", kcal:620},
+    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Puchero paraguayo con acompañamiento (Nacional)", kcal:700},
+    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Canelones integrales de pollo y ensalada verde", kcal:460},
+    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Moqueca de pescado con arroz al ajo y limón (Brasil)", kcal:610},
+    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Curry de pollo y vegetales con arroz especiado (India)", kcal:670},
     {cat:"GESA",       badge:"badge-gesa",        name:"Menú GESA",          plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
   ]},
-  { label:"Jueves 18 de junio", short:"Jueves 18", menus:[
-    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Tallarín con salsa boloñesa", kcal:600},
-    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Costilla de cerdo a la naranja con papas rústicas", kcal:680},
-    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Grille de pechuga al limón con puré de zapallos a las hierbas", kcal:430},
-    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Tilapia a la pizza con budín de verduras", kcal:570},
-    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Risotto de pollo y albahaca (Italia)", kcal:620},
-    {cat:"GESA",       badge:"badge-gesa",        name:"Menú GESA",          plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
-  ]},
-  { label:"Viernes 19 de junio", short:"Viernes 19", menus:[
-    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Estofado de cerdo y fideos cortos", kcal:620},
-    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Sopa de pescado y arroz aromático", kcal:520},
-    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Lomito de cerdo a la plancha con ensalada verde", kcal:420},
-    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Milanesa de lomito a la napolitana con ensalada alemana", kcal:710},
-    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Canelones de carne y salsa mediterránea con chip de papas", kcal:680},
+  { label:"Viernes 26 de junio", short:"Viernes 26", menus:[
+    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Cerdo desmechado con polenta (Nacional)", kcal:550},
+    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Guiso de pollo con fideo", kcal:600},
+    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Lomito de cerdo al limón con puré de batata", kcal:440},
+    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Asado a la olla con puré de papas", kcal:710},
+    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Ravioli de jamón y queso con salsa putanesca (sin picante) (Italia)", kcal:660},
     {cat:"GESA",       badge:"badge-gesa",        name:"Menú GESA",          plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
   ]}
 ];
