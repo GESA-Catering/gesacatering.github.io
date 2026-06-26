@@ -11,8 +11,6 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Lato', sans-serif; background: #F7F4F0; min-height: 100vh; display: flex; justify-content: center; padding: 0 0 2rem; }
     .container { width: 100%; max-width: 480px; background: #fff; min-height: 100vh; box-shadow: 0 0 40px rgba(0,0,0,0.08); }
-
-    /* HEADER */
     .header { background: #fff; padding: 1.25rem 1.25rem 1rem; border-bottom: 1px solid #EDE9E3; display: flex; align-items: center; gap: 14px; position: sticky; top: 0; z-index: 10; }
     .logo-blocks { display: flex; gap: 3px; }
     .logo-block { width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 500; color: #F5EFE0; border-radius: 4px; }
@@ -20,50 +18,31 @@
     .header-text { flex: 1; }
     .header-title { font-size: 15px; font-weight: 700; color: #1A1A1A; line-height: 1.2; }
     .header-sub { font-size: 12px; color: #888; margin-top: 2px; }
-
-    /* PLAN SELECTOR */
     .plan-section { padding: 1rem 1.25rem; border-bottom: 1px solid #EDE9E3; }
     .plan-section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #999; margin-bottom: 10px; }
     .plan-tabs { display: flex; gap: 8px; }
-    .plan-tab {
-      flex: 1; padding: 10px 6px; border-radius: 12px;
-      border: 1.5px solid #DDD; cursor: pointer;
-      text-align: center; transition: all 0.2s; background: #fff;
-    }
+    .plan-tab { flex: 1; padding: 10px 6px; border-radius: 12px; border: 1.5px solid #DDD; cursor: pointer; text-align: center; transition: all 0.2s; background: #fff; }
     .plan-tab:hover { border-color: #BBB; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
     .plan-tab-icon { font-size: 18px; margin-bottom: 4px; }
     .plan-tab-name { font-size: 11px; font-weight: 700; color: #444; line-height: 1.2; }
     .plan-tab-price { font-size: 10px; color: #AAA; margin-top: 3px; }
-
-    /* Plan active states */
     .plan-tab.active-estandar { border-color: #993333; background: #FFF5F5; }
     .plan-tab.active-estandar .plan-tab-name { color: #993333; }
     .plan-tab.active-estandar .plan-tab-price { color: #CC7777; }
-
     .plan-tab.active-corporativo { border-color: #2E7D32; background: #F1F8F1; }
     .plan-tab.active-corporativo .plan-tab-name { color: #2E7D32; }
     .plan-tab.active-corporativo .plan-tab-price { color: #5A9E5E; }
-
     .plan-tab.active-ejecutivo { border-color: #B8860B; background: #FEFBF0; }
     .plan-tab.active-ejecutivo .plan-tab-name { color: #8A6200; }
     .plan-tab.active-ejecutivo .plan-tab-price { color: #B8960B; }
-
-    /* HOLIDAY NOTE */
-    .holiday-note { margin: 0.85rem 1.25rem 0; background: #FFF6E5; border: 1px solid #F3DFAE; border-radius: 10px; padding: 10px 14px; font-size: 12px; color: #8A6519; display: flex; align-items: center; gap: 8px; }
-
-    /* DAY TABS */
     .day-tabs { display: flex; overflow-x: auto; padding: 0.85rem 1.25rem 0; gap: 8px; border-bottom: 1px solid #EDE9E3; scrollbar-width: none; }
     .day-tabs::-webkit-scrollbar { display: none; }
     .day-tab { flex-shrink: 0; padding: 7px 16px; border-radius: 20px; border: 1px solid #DDD; font-size: 13px; font-weight: 400; background: #fff; color: #666; cursor: pointer; transition: all 0.15s; margin-bottom: 0.85rem; position: relative; }
     .day-tab.active { background: #993333; color: #fff; border-color: #993333; font-weight: 700; }
     .day-tab:hover:not(.active) { border-color: #999; color: #333; }
     .tab-dot { position: absolute; top: -3px; right: -3px; width: 9px; height: 9px; background: #25D366; border-radius: 50%; border: 2px solid #fff; }
-
-    /* PLAN ACTIVE DAY TAB COLOR */
     body.plan-corporativo .day-tab.active { background: #2E7D32; border-color: #2E7D32; }
     body.plan-ejecutivo .day-tab.active { background: #8A6200; border-color: #8A6200; }
-
-    /* MENUS */
     .menus-section { padding: 1rem 1.25rem 0; }
     .section-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #999; margin-bottom: 10px; }
     .menu-card { border: 1px solid #EDE9E3; border-radius: 12px; padding: 0.9rem 1rem; margin-bottom: 8px; cursor: pointer; background: #fff; transition: border-color 0.15s, box-shadow 0.15s; }
@@ -86,34 +65,24 @@
     .menu-name { font-size: 14px; font-weight: 700; color: #1A1A1A; line-height: 1.3; }
     .menu-desc { font-size: 13px; color: #666; margin-top: 3px; line-height: 1.45; }
     .menu-kcal { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; color: #999; margin-top: 5px; background: #F7F4F0; border-radius: 20px; padding: 2px 8px; }
-
-    /* PLAN BADGE ON CARD */
     .plan-discount-badge { display: inline-flex; align-items: center; gap: 4px; font-size: 10px; font-weight: 700; margin-left: 6px; padding: 2px 7px; border-radius: 20px; }
     .plan-discount-badge.corp { background: #E8F5E9; color: #2E7D32; }
     .plan-discount-badge.exec { background: #FFF8E1; color: #8A6200; }
-
-    /* QTY ON CARD */
     .card-qty-row { display: flex; align-items: center; gap: 8px; margin-top: 12px; padding-top: 10px; border-top: 1px solid #F0EBE8; }
     .card-qty-label { font-size: 12px; color: #888; flex: 1; }
     .card-qty-btn { width: 30px; height: 30px; border-radius: 6px; border: 1px solid #DDD; background: #fff; cursor: pointer; font-size: 18px; color: #333; display: flex; align-items: center; justify-content: center; transition: border-color 0.15s; }
     .card-qty-btn:hover { border-color: var(--plan-color, #993333); color: var(--plan-color, #993333); }
     .card-qty-num { font-size: 16px; font-weight: 700; min-width: 20px; text-align: center; color: #1A1A1A; }
     .card-subtotal { font-size: 13px; font-weight: 700; color: var(--plan-color, #993333); }
-
-    /* GESA SELECTS */
     .gesa-selects { margin-top: 10px; display: flex; flex-direction: column; gap: 8px; }
     .gesa-label { font-size: 12px; color: #888; margin-bottom: 3px; font-weight: 700; }
     .gesa-selects select { width: 100%; padding: 8px 10px; border: 1px solid #DDD; border-radius: 8px; font-size: 13px; font-family: 'Lato', sans-serif; color: #1A1A1A; background: #FAFAFA; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; }
-
-    /* FORM */
     .form-section { padding: 0.85rem 1.25rem 0; }
     .form-group { margin-bottom: 0.85rem; }
     .form-label { font-size: 12px; font-weight: 700; color: #666; margin-bottom: 5px; display: block; text-transform: uppercase; letter-spacing: 0.05em; }
     .form-section input { width: 100%; padding: 10px 12px; border: 1px solid #DDD; border-radius: 8px; font-size: 14px; font-family: 'Lato', sans-serif; color: #1A1A1A; background: #FAFAFA; transition: border-color 0.15s; }
     .form-section input:focus { outline: none; border-color: var(--plan-color, #993333); background: #fff; }
     .form-section input::placeholder { color: #BBB; }
-
-    /* CART */
     .cart-wrap { margin: 0.85rem 1.25rem 0; }
     .cart-box { background: #FBF8F5; border: 1px solid #EDE9E3; border-radius: 10px; padding: 0.9rem 1rem; }
     .cart-day-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--plan-color, #993333); margin: 10px 0 6px; }
@@ -126,8 +95,6 @@
     .cart-item-qty { color: #999; font-size: 12px; }
     .cart-item-price { font-weight: 700; color: #1A1A1A; white-space: nowrap; }
     .cart-total-row { display: flex; justify-content: space-between; font-size: 15px; font-weight: 700; color: #1A1A1A; padding-top: 10px; margin-top: 8px; border-top: 2px solid var(--plan-color, #993333); }
-
-    /* PAYMENT */
     .payment-wrap { margin: 0.85rem 1.25rem 0; }
     .payment-box { background: #F0F7FF; border: 1px solid #C8DFFB; border-radius: 12px; padding: 1rem; }
     .payment-title { font-size: 13px; font-weight: 700; color: #185FA5; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
@@ -140,8 +107,6 @@
     .copy-btn { display: flex; align-items: center; gap: 5px; background: #185FA5; color: white; border: none; border-radius: 8px; padding: 7px 14px; font-size: 12px; font-weight: 700; font-family: 'Lato', sans-serif; cursor: pointer; transition: background 0.15s; white-space: nowrap; }
     .copy-btn:hover { background: #1250a0; }
     .copy-btn.copied { background: #25D366; }
-
-    /* WHATSAPP BUTTON */
     .btn-wa { display: flex; align-items: center; justify-content: center; gap: 10px; width: calc(100% - 2.5rem); margin: 1rem 1.25rem 0.4rem; padding: 14px; background: #25D366; border: none; border-radius: 12px; font-size: 15px; font-weight: 700; font-family: 'Lato', sans-serif; color: white; cursor: pointer; transition: background 0.15s, transform 0.1s; }
     .btn-wa:hover { background: #1fba59; }
     .btn-wa:active { transform: scale(0.98); }
@@ -152,7 +117,6 @@
 <body>
 <div class="container">
 
-  <!-- HEADER -->
   <div class="header">
     <div class="logo-blocks">
       <div class="logo-block lb-g">G</div>
@@ -161,12 +125,11 @@
       <div class="logo-block lb-a">A</div>
     </div>
     <div class="header-text">
-      <div class="header-title">Pedidos — semana del 22 al 26 de junio</div>
+      <div class="header-title">Pedidos — semana del 29 de junio al 3 de julio</div>
       <div class="header-sub">Pedidos hasta las 10:00 am del día anterior</div>
     </div>
   </div>
 
-  <!-- PLAN SELECTOR -->
   <div class="plan-section">
     <div class="plan-section-title">Seleccioná tu plan</div>
     <div class="plan-tabs">
@@ -188,18 +151,14 @@
     </div>
   </div>
 
-  <!-- HOLIDAY NOTE -->
-  <div class="holiday-note">🎉 El lunes 22 de junio es feriado — sin entregas ese día. Pedidos disponibles de martes a viernes.</div>
-
-  <!-- DAY TABS -->
   <div class="day-tabs" id="dayTabs">
-    <div class="day-tab active" onclick="selectDay(0)">Martes 23</div>
-    <div class="day-tab" onclick="selectDay(1)">Miércoles 24</div>
-    <div class="day-tab" onclick="selectDay(2)">Jueves 25</div>
-    <div class="day-tab" onclick="selectDay(3)">Viernes 26</div>
+    <div class="day-tab active" onclick="selectDay(0)">Lunes 29</div>
+    <div class="day-tab" onclick="selectDay(1)">Martes 30</div>
+    <div class="day-tab" onclick="selectDay(2)">Miércoles 1</div>
+    <div class="day-tab" onclick="selectDay(3)">Jueves 2</div>
+    <div class="day-tab" onclick="selectDay(4)">Viernes 3</div>
   </div>
 
-  <!-- MENUS -->
   <div class="menus-section">
     <div class="section-label">Elegí tu menú</div>
     <div id="menuList"></div>
@@ -207,7 +166,6 @@
 
   <div class="divider"></div>
 
-  <!-- FORM -->
   <div class="form-section">
     <div class="form-group">
       <label class="form-label" for="nameInput">Nombre</label>
@@ -225,7 +183,6 @@
 
   <div id="cartSection"></div>
 
-  <!-- PAYMENT -->
   <div class="payment-wrap">
     <div class="section-label">Datos para transferencia</div>
     <div class="payment-box">
@@ -268,261 +225,201 @@ const GUARNICIONES = ["Ensalada mixta clásica","Puré de papas","Arroz con ques
 const BANK = { banco:'Interfisa Banco SAECA', cuenta:'259017498', titular:'GESA EVENTOS & CATERING INTERNACIONAL E.A.S. UNIPERSONAL', moneda:'Guaraníes (₲)', ruc:'80155879-4 GESA Eventos & Catering Internacional E.A.S.' };
 
 const PLANS = {
-  estandar: {
-    label: 'Estándar',
-    color: '#993333', bg: '#FFF9F9',
-    prices: { 'Económico':27000,'Tradicional':30000,'Fit':35000,'Ejecutivo':36000,'Chef':38000,'GESA':30000 },
-    available: ['Económico','Tradicional','Fit','Ejecutivo','Chef','GESA']
-  },
-  corporativo: {
-    label: '🟢 Plan Corporativo',
-    color: '#2E7D32', bg: '#F1F8F1',
-    prices: { 'Económico':25000,'Tradicional':25000,'GESA':25000 },
-    available: ['Económico','Tradicional','GESA']
-  },
-  ejecutivo: {
-    label: '⭐ Plan Ejecutivo',
-    color: '#8A6200', bg: '#FEFBF0',
-    prices: { 'Económico':30000,'Tradicional':30000,'Fit':30000,'Ejecutivo':30000,'Chef':30000,'GESA':30000 },
-    available: ['Económico','Tradicional','Fit','Ejecutivo','Chef','GESA']
-  }
+  estandar:    { label:'Estándar',         color:'#993333', bg:'#FFF9F9', prices:{'Económico':27000,'Tradicional':30000,'Fit':35000,'Ejecutivo':36000,'Chef':38000,'GESA':30000}, available:['Económico','Tradicional','Fit','Ejecutivo','Chef','GESA'] },
+  corporativo: { label:'Plan Corporativo', color:'#2E7D32', bg:'#F1F8F1', prices:{'Económico':25000,'Tradicional':25000,'GESA':25000},                                          available:['Económico','Tradicional','GESA'] },
+  ejecutivo:   { label:'Plan Ejecutivo',   color:'#8A6200', bg:'#FEFBF0', prices:{'Económico':30000,'Tradicional':30000,'Fit':30000,'Ejecutivo':30000,'Chef':30000,'GESA':30000}, available:['Económico','Tradicional','Fit','Ejecutivo','Chef','GESA'] }
 };
 
 const DAYS = [
-  { label:"Martes 23 de junio", short:"Martes 23", menus:[
-    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Guiso de arroz con carne vacuna (Nacional)", kcal:560},
-    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Pollo a la portuguesa con papas a las hierbas", kcal:660},
-    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Pescado grill al limón con ensalada del chef", kcal:420},
-    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Lomo de cerdo con salsa agridulce y arroz chino (China)", kcal:690},
-    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Lomito vacuno con salsa madera y mix de tubérculos", kcal:680},
+  { label:"Lunes 29 de junio", short:"Lunes 29", menus:[
+    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Milanesa de pollo con arroz con queso", kcal:550},
+    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"So'o josopy con tortillitas (nacional)", kcal:620},
+    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Pechuga grillada con salsa de curry y puré de zapallo", kcal:470},
+    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Lasaña de carne con verduras al horno", kcal:690},
+    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Bondiola de cerdo en salsa barbacoa y papas asadas (EE.UU.)", kcal:670},
     {cat:"GESA",       badge:"badge-gesa",        name:"Menú GESA",          plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
   ]},
-  { label:"Miércoles 24 de junio", short:"Miércoles 24", menus:[
-    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Caldo de pescado y ensalada de repollo (Nacional)", kcal:480},
-    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Ñoquis con salsa parisienne y mini ensalada verde", kcal:600},
-    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Bifecitos de lomo con mix de vegetales al vapor", kcal:450},
-    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Pechuga rellena con salsa veloutte y coliflor y brócoli a la crema", kcal:650},
-    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Bife alemán con soufflé de arroz y queso (Alemania)", kcal:700},
+  { label:"Martes 30 de junio", short:"Martes 30", menus:[
+    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Guiso de fideo con carne vacuna (nacional)", kcal:560},
+    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Ají de gallina y arroz pilaf (Perú)", kcal:600},
+    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Pescado a la plancha con salsa verde y vegetales al oliva", kcal:480},
+    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Costilla de cerdo al ajillo con papas hasselback a la mostaza dulce", kcal:680},
+    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Lomito vacuno con salsa de queso y mostaza con verduras grilladas", kcal:650},
     {cat:"GESA",       badge:"badge-gesa",        name:"Menú GESA",          plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
   ]},
-  { label:"Jueves 25 de junio", short:"Jueves 25", menus:[
-    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Ravioli de carne con salsa pomodoro", kcal:620},
-    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Puchero paraguayo con acompañamiento (Nacional)", kcal:700},
-    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Canelones integrales de pollo y ensalada verde", kcal:460},
-    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Moqueca de pescado con arroz al ajo y limón (Brasil)", kcal:610},
-    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Curry de pollo y vegetales con arroz especiado (India)", kcal:670},
+  { label:"Miércoles 1 de julio", short:"Miércoles 1", menus:[
+    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Caldo de pescado con tortillas de arroz y queso", kcal:450},
+    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Ravioles de carne con salsa crema y queso", kcal:620},
+    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Desmechado de carne con arroz integral al perejil", kcal:490},
+    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Pechuga rellena con salsa crema y soufflé de arroz", kcal:660},
+    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Pescado al papillote con papas a la francesa (Francia)", kcal:610},
     {cat:"GESA",       badge:"badge-gesa",        name:"Menú GESA",          plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
   ]},
-  { label:"Viernes 26 de junio", short:"Viernes 26", menus:[
-    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Cerdo desmechado con polenta (Nacional)", kcal:550},
-    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Guiso de pollo con fideo", kcal:600},
-    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Lomito de cerdo al limón con puré de batata", kcal:440},
-    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Asado a la olla con puré de papas", kcal:710},
-    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Ravioli de jamón y queso con salsa putanesca sin picante (Italia)", kcal:660},
+  { label:"Jueves 2 de julio", short:"Jueves 2", menus:[
+    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Tallarín con salsa boloñesa y papas", kcal:570},
+    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Estofado de cerdo con polenta y verduras", kcal:600},
+    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Ñoquis integrales con salsa pomodoro y tiritas de carne", kcal:470},
+    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Chupín de pescado y batata frita", kcal:650},
+    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Coq au vin con dúo de puré de papa y calabaza (Francia)", kcal:690},
+    {cat:"GESA",       badge:"badge-gesa",        name:"Menú GESA",          plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
+  ]},
+  { label:"Viernes 3 de julio", short:"Viernes 3", menus:[
+    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Costilla de cerdo a la naranja con tallarines a la manteca", kcal:560},
+    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Milanesa de pescado con arroz azafranado", kcal:580},
+    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Lomito de cerdo grillado con salsa de curry y zucchini salteado", kcal:480},
+    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Bife de chorizo con salsa madera y puré de papa", kcal:700},
+    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Ravioli de jamón y queso con salsa parisienne (Italia)", kcal:620},
     {cat:"GESA",       badge:"badge-gesa",        name:"Menú GESA",          plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
   ]}
 ];
 
-let currentDay = 0;
-let currentPlan = 'estandar';
-let cart = [];
+let currentDay=0, currentPlan='estandar', cart=[];
 
-function fmtPrice(n){ return '₲ ' + n.toLocaleString('es-PY'); }
+function fmtPrice(n){ return '₲ '+n.toLocaleString('es-PY'); }
 function getPlan(){ return PLANS[currentPlan]; }
-function getPrice(cat){ return getPlan().prices[cat] || 0; }
+function getPrice(cat){ return getPlan().prices[cat]||0; }
 function isAvailable(cat){ return getPlan().available.includes(cat); }
 function getCartItem(d,m){ return cart.find(i=>i.dayIdx===d&&i.menuIdx===m)||null; }
 
 function applyPlanColors(){
-  const plan = getPlan();
-  document.documentElement.style.setProperty('--plan-color', plan.color);
-  document.documentElement.style.setProperty('--plan-bg', plan.bg);
-  document.body.className = 'plan-' + currentPlan;
+  const p=getPlan();
+  document.documentElement.style.setProperty('--plan-color',p.color);
+  document.documentElement.style.setProperty('--plan-bg',p.bg);
+  document.body.className='plan-'+currentPlan;
 }
 
 function selectPlan(plan){
-  currentPlan = plan;
-  cart = [];
-  // Update plan tab styles
-  ['estandar','corporativo','ejecutivo'].forEach(p => {
-    const tab = document.getElementById('tab-' + p);
-    tab.className = 'plan-tab' + (p === plan ? ' active-' + p : '');
+  currentPlan=plan; cart=[];
+  ['estandar','corporativo','ejecutivo'].forEach(p=>{
+    document.getElementById('tab-'+p).className='plan-tab'+(p===plan?' active-'+p:'');
   });
-  applyPlanColors();
-  renderMenus();
-  updateCartSummary();
-  updateTabDots();
+  applyPlanColors(); renderMenus(); updateCartSummary(); updateTabDots();
 }
 
 function selectDay(i){
-  currentDay = i;
-  document.querySelectorAll('.day-tab').forEach((t,j) => t.classList.toggle('active', i===j));
+  currentDay=i;
+  document.querySelectorAll('.day-tab').forEach((t,j)=>t.classList.toggle('active',i===j));
   renderMenus();
 }
 
-function toggleMenu(dayIdx, menuIdx){
-  const ex = getCartItem(dayIdx, menuIdx);
-  if(ex){ cart = cart.filter(i => !(i.dayIdx===dayIdx && i.menuIdx===menuIdx)); }
-  else{
-    const m = DAYS[dayIdx].menus[menuIdx];
-    cart.push({ dayIdx, menuIdx, qty:1, gesaProt: m.isGesa ? PROTEINAS[0] : null, gesaGuar: m.isGesa ? GUARNICIONES[0] : null });
-  }
+function toggleMenu(dayIdx,menuIdx){
+  const ex=getCartItem(dayIdx,menuIdx);
+  if(ex){ cart=cart.filter(i=>!(i.dayIdx===dayIdx&&i.menuIdx===menuIdx)); }
+  else{ const m=DAYS[dayIdx].menus[menuIdx]; cart.push({dayIdx,menuIdx,qty:1,gesaProt:m.isGesa?PROTEINAS[0]:null,gesaGuar:m.isGesa?GUARNICIONES[0]:null}); }
   renderMenus(); updateCartSummary(); updateTabDots();
 }
 
 function changeItemQty(d,m,delta){
-  const item = getCartItem(d,m); if(!item) return;
-  item.qty = Math.max(1, Math.min(20, item.qty+delta));
+  const item=getCartItem(d,m); if(!item)return;
+  item.qty=Math.max(1,Math.min(20,item.qty+delta));
   renderMenus(); updateCartSummary();
 }
 
-function updateGesa(d,m,field,val){
-  const item = getCartItem(d,m); if(item){ item[field]=val; updateCartSummary(); }
-}
+function updateGesa(d,m,field,val){ const item=getCartItem(d,m); if(item){item[field]=val;updateCartSummary();} }
 
 function updateTabDots(){
-  document.querySelectorAll('.day-tab').forEach((tab,i) => {
-    const has = cart.some(c => c.dayIdx===i);
-    const dot = tab.querySelector('.tab-dot');
-    if(has && !dot){ const d=document.createElement('div'); d.className='tab-dot'; tab.appendChild(d); }
-    else if(!has && dot){ dot.remove(); }
+  document.querySelectorAll('.day-tab').forEach((tab,i)=>{
+    const has=cart.some(c=>c.dayIdx===i);
+    const dot=tab.querySelector('.tab-dot');
+    if(has&&!dot){const d=document.createElement('div');d.className='tab-dot';tab.appendChild(d);}
+    else if(!has&&dot){dot.remove();}
   });
 }
 
 function copyAccount(){
-  navigator.clipboard.writeText(BANK.cuenta).then(() => {
-    const btn = document.getElementById('copyBtn');
+  navigator.clipboard.writeText(BANK.cuenta).then(()=>{
+    const btn=document.getElementById('copyBtn');
     btn.classList.add('copied');
     btn.innerHTML=`<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> ¡Copiado!`;
-    setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML=`<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copiar cuenta`; }, 2500);
+    setTimeout(()=>{btn.classList.remove('copied');btn.innerHTML=`<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copiar cuenta`;},2500);
   });
 }
 
 function renderMenus(){
-  const list = document.getElementById('menuList');
-  list.innerHTML = '';
-  const plan = getPlan();
-
-  DAYS[currentDay].menus.forEach((m, i) => {
-    if(!isAvailable(m.cat)) return;
-    const item = getCartItem(currentDay, i);
-    const isSelected = !!item;
-    const price = getPrice(m.cat);
-
-    const card = document.createElement('div');
-    card.className = 'menu-card' + (isSelected ? ' selected' : '');
-    card.onclick = () => toggleMenu(currentDay, i);
-
-    // Plan discount badge
-    let discountBadge = '';
-    if(currentPlan === 'corporativo'){
-      discountBadge = `<span class="plan-discount-badge corp">Plan Corp.</span>`;
-    } else if(currentPlan === 'ejecutivo'){
-      discountBadge = `<span class="plan-discount-badge exec">Plan Ejec.</span>`;
-    }
-
-    let gesaHtml = '';
-    if(m.isGesa && isSelected){
-      gesaHtml = `<div class="gesa-selects" onclick="event.stopPropagation()">
+  const list=document.getElementById('menuList');
+  list.innerHTML='';
+  DAYS[currentDay].menus.forEach((m,i)=>{
+    if(!isAvailable(m.cat))return;
+    const item=getCartItem(currentDay,i);
+    const isSelected=!!item;
+    const price=getPrice(m.cat);
+    const card=document.createElement('div');
+    card.className='menu-card'+(isSelected?' selected':'');
+    card.onclick=()=>toggleMenu(currentDay,i);
+    let discountBadge='';
+    if(currentPlan==='corporativo') discountBadge=`<span class="plan-discount-badge corp">Plan Corp.</span>`;
+    else if(currentPlan==='ejecutivo') discountBadge=`<span class="plan-discount-badge exec">Plan Ejec.</span>`;
+    let gesaHtml='';
+    if(m.isGesa&&isSelected){
+      gesaHtml=`<div class="gesa-selects" onclick="event.stopPropagation()">
         <div><div class="gesa-label">Proteína</div><select onchange="updateGesa(${currentDay},${i},'gesaProt',this.value)">${PROTEINAS.map(p=>`<option${item.gesaProt===p?' selected':''}>${p}</option>`).join('')}</select></div>
         <div><div class="gesa-label">Guarnición</div><select onchange="updateGesa(${currentDay},${i},'gesaGuar',this.value)">${GUARNICIONES.map(g=>`<option${item.gesaGuar===g?' selected':''}>${g}</option>`).join('')}</select></div>
       </div>`;
     }
-
-    let qtyHtml = '';
+    let qtyHtml='';
     if(isSelected){
-      qtyHtml = `<div class="card-qty-row" onclick="event.stopPropagation()">
+      qtyHtml=`<div class="card-qty-row" onclick="event.stopPropagation()">
         <span class="card-qty-label">Cantidad</span>
         <button class="card-qty-btn" onclick="event.stopPropagation();changeItemQty(${currentDay},${i},-1)">−</button>
         <span class="card-qty-num">${item.qty}</span>
         <button class="card-qty-btn" onclick="event.stopPropagation();changeItemQty(${currentDay},${i},1)">+</button>
-        <span class="card-subtotal">${fmtPrice(price * item.qty)}</span>
+        <span class="card-subtotal">${fmtPrice(price*item.qty)}</span>
       </div>`;
     }
-
-    const kcalHtml = m.kcal ? `<span class="menu-kcal">🔥 ${m.kcal} kcal</span>` : `<span class="menu-kcal">🔥 varía según elección</span>`;
-
-    card.innerHTML = `
-      <div class="menu-card-top">
-        <div class="menu-check"></div>
-        <div class="menu-info">
-          <div class="menu-top">
-            <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;">
-              <span class="menu-badge ${m.badge}">${m.cat}</span>${discountBadge}
-            </div>
-            <span class="menu-price">${fmtPrice(price)}</span>
-          </div>
-          <div class="menu-name">${m.name}</div>
-          <div class="menu-desc">${m.plate}</div>
-          ${kcalHtml}${gesaHtml}
-        </div>
-      </div>${qtyHtml}`;
+    const kcalHtml=m.kcal?`<span class="menu-kcal">🔥 ${m.kcal} kcal</span>`:`<span class="menu-kcal">🔥 varía según elección</span>`;
+    card.innerHTML=`<div class="menu-card-top"><div class="menu-check"></div><div class="menu-info"><div class="menu-top"><div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;"><span class="menu-badge ${m.badge}">${m.cat}</span>${discountBadge}</div><span class="menu-price">${fmtPrice(price)}</span></div><div class="menu-name">${m.name}</div><div class="menu-desc">${m.plate}</div>${kcalHtml}${gesaHtml}</div></div>${qtyHtml}`;
     list.appendChild(card);
   });
 }
 
 function updateCartSummary(){
-  const section = document.getElementById('cartSection');
-  if(cart.length === 0){ section.innerHTML = ''; return; }
-  const byDay = {};
-  cart.forEach(item => { if(!byDay[item.dayIdx]) byDay[item.dayIdx]=[]; byDay[item.dayIdx].push(item); });
-  let total = 0, rows = '';
-  Object.keys(byDay).sort((a,b)=>a-b).forEach(dayIdx => {
-    rows += `<div class="cart-day-title">${DAYS[dayIdx].short}</div>`;
-    byDay[dayIdx].forEach(item => {
-      const m = DAYS[item.dayIdx].menus[item.menuIdx];
-      const price = getPrice(m.cat);
-      const t = price * item.qty; total += t;
-      let extra = m.isGesa && item.gesaProt ? `<span class="cart-item-extra">${item.gesaProt} + ${item.gesaGuar}</span>` : '';
-      rows += `<div class="cart-item-row">
-        <span class="cart-item-name">${m.name}${extra}</span>
-        <div class="cart-item-right"><span class="cart-item-qty">×${item.qty}</span><span class="cart-item-price">${fmtPrice(t)}</span></div>
-      </div>`;
+  const section=document.getElementById('cartSection');
+  if(cart.length===0){section.innerHTML='';return;}
+  const byDay={};
+  cart.forEach(item=>{if(!byDay[item.dayIdx])byDay[item.dayIdx]=[];byDay[item.dayIdx].push(item);});
+  let total=0,rows='';
+  Object.keys(byDay).sort((a,b)=>a-b).forEach(dayIdx=>{
+    rows+=`<div class="cart-day-title">${DAYS[dayIdx].short}</div>`;
+    byDay[dayIdx].forEach(item=>{
+      const m=DAYS[item.dayIdx].menus[item.menuIdx];
+      const t=getPrice(m.cat)*item.qty; total+=t;
+      let extra=m.isGesa&&item.gesaProt?`<span class="cart-item-extra">${item.gesaProt} + ${item.gesaGuar}</span>`:'';
+      rows+=`<div class="cart-item-row"><span class="cart-item-name">${m.name}${extra}</span><div class="cart-item-right"><span class="cart-item-qty">×${item.qty}</span><span class="cart-item-price">${fmtPrice(t)}</span></div></div>`;
     });
   });
-  section.innerHTML = `<div class="divider"></div><div class="cart-wrap"><div class="section-label">Tu pedido</div><div class="cart-box">${rows}<div class="cart-total-row"><span>Total</span><span>${fmtPrice(total)}</span></div></div></div>`;
+  section.innerHTML=`<div class="divider"></div><div class="cart-wrap"><div class="section-label">Tu pedido</div><div class="cart-box">${rows}<div class="cart-total-row"><span>Total</span><span>${fmtPrice(total)}</span></div></div></div>`;
 }
 
 function sendOrder(){
-  if(cart.length === 0){ alert('Por favor seleccioná al menos un menú.'); return; }
-  const name    = document.getElementById('nameInput').value.trim();
-  const empresa = document.getElementById('empresaInput').value.trim();
-  const address = document.getElementById('addressInput').value.trim();
-  if(!name)    { alert('Por favor ingresá tu nombre.'); return; }
-  if(!empresa) { alert('Por favor ingresá el nombre de tu empresa.'); return; }
-  if(!address) { alert('Por favor ingresá tu dirección de entrega.'); return; }
-
-  const byDay = {};
-  cart.forEach(item => { if(!byDay[item.dayIdx]) byDay[item.dayIdx]=[]; byDay[item.dayIdx].push(item); });
-  let total = 0;
-  const plan = getPlan();
-
-  let msg = `¡Muchas gracias por su preferencia! 🙏\nA continuación el detalle de su pedido:\n\n`;
-  msg += `👤 *${name}*\n`;
-  msg += `🏢 *Empresa:* ${empresa}\n`;
-  msg += `📋 *Plan:* ${plan.label}\n`;
-  msg += `📍 *Dirección:* ${address}\n\n`;
-
-  Object.keys(byDay).sort((a,b)=>a-b).forEach(dayIdx => {
-    msg += `📅 *${DAYS[dayIdx].label}*\n`;
-    byDay[dayIdx].forEach(item => {
-      const m = DAYS[item.dayIdx].menus[item.menuIdx];
-      const price = getPrice(m.cat);
-      const t = price * item.qty; total += t;
-      msg += `  • ${m.name} × ${item.qty} — ${fmtPrice(t)}\n`;
-      if(m.isGesa && item.gesaProt) msg += `    _Proteína:_ ${item.gesaProt}\n    _Guarnición:_ ${item.gesaGuar}\n`;
+  if(cart.length===0){alert('Por favor seleccioná al menos un menú.');return;}
+  const name=document.getElementById('nameInput').value.trim();
+  const empresa=document.getElementById('empresaInput').value.trim();
+  const address=document.getElementById('addressInput').value.trim();
+  if(!name){alert('Por favor ingresá tu nombre.');return;}
+  if(!empresa){alert('Por favor ingresá el nombre de tu empresa.');return;}
+  if(!address){alert('Por favor ingresá tu dirección de entrega.');return;}
+  const byDay={};
+  cart.forEach(item=>{if(!byDay[item.dayIdx])byDay[item.dayIdx]=[];byDay[item.dayIdx].push(item);});
+  let total=0;
+  const plan=getPlan();
+  let msg=`¡Muchas gracias por su preferencia! 🙏\nA continuación el detalle de su pedido:\n\n`;
+  msg+=`👤 *${name}*\n🏢 *Empresa:* ${empresa}\n📋 *Plan:* ${plan.label}\n📍 *Dirección:* ${address}\n\n`;
+  Object.keys(byDay).sort((a,b)=>a-b).forEach(dayIdx=>{
+    msg+=`📅 *${DAYS[dayIdx].label}*\n`;
+    byDay[dayIdx].forEach(item=>{
+      const m=DAYS[item.dayIdx].menus[item.menuIdx];
+      const t=getPrice(m.cat)*item.qty; total+=t;
+      msg+=`  • ${m.name} × ${item.qty} — ${fmtPrice(t)}\n`;
+      if(m.isGesa&&item.gesaProt) msg+=`    _Proteína:_ ${item.gesaProt}\n    _Guarnición:_ ${item.gesaGuar}\n`;
     });
-    msg += '\n';
+    msg+='\n';
   });
-
-  msg += `💰 *Total a transferir: ${fmtPrice(total)}*\n\n`;
-  msg += `🏦 *Datos bancarios:*\n  Banco: ${BANK.banco}\n  Cuenta: *${BANK.cuenta}*\n  Titular: ${BANK.titular}\n  RUC: ${BANK.ruc}\n  Moneda: ${BANK.moneda}\n\n`;
-  msg += `_En breve nos comunicamos para confirmar su entrega. — GESA Eventos & Catering_`;
-
-  window.open('https://wa.me/595994433025?text=' + encodeURIComponent(msg), '_blank');
+  msg+=`💰 *Total a transferir: ${fmtPrice(total)}*\n\n`;
+  msg+=`🏦 *Datos bancarios:*\n  Banco: ${BANK.banco}\n  Cuenta: *${BANK.cuenta}*\n  Titular: ${BANK.titular}\n  RUC: ${BANK.ruc}\n  Moneda: ${BANK.moneda}\n\n`;
+  msg+=`_En breve nos comunicamos para confirmar su entrega. — GESA Eventos & Catering_`;
+  window.open('https://wa.me/595994433025?text='+encodeURIComponent(msg),'_blank');
 }
 
-// Init
 applyPlanColors();
 renderMenus();
 </script>
