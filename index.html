@@ -125,7 +125,7 @@
       <div class="logo-block lb-a">A</div>
     </div>
     <div class="header-text">
-      <div class="header-title">Pedidos — semana del 13 al 17 de julio</div>
+      <div class="header-title">Pedidos — semana del 20 al 24 de julio</div>
       <div class="header-sub">Pedidos hasta las 10:00 am del día anterior</div>
     </div>
   </div>
@@ -152,11 +152,11 @@
   </div>
 
   <div class="day-tabs" id="dayTabs">
-    <div class="day-tab active" onclick="selectDay(0)">Lunes 13</div>
-    <div class="day-tab" onclick="selectDay(1)">Martes 14</div>
-    <div class="day-tab" onclick="selectDay(2)">Miércoles 15</div>
-    <div class="day-tab" onclick="selectDay(3)">Jueves 16</div>
-    <div class="day-tab" onclick="selectDay(4)">Viernes 17</div>
+    <div class="day-tab active" onclick="selectDay(0)">Lunes 20</div>
+    <div class="day-tab" onclick="selectDay(1)">Martes 21</div>
+    <div class="day-tab" onclick="selectDay(2)">Miércoles 22</div>
+    <div class="day-tab" onclick="selectDay(3)">Jueves 23</div>
+    <div class="day-tab" onclick="selectDay(4)">Viernes 24</div>
   </div>
 
   <div class="menus-section">
@@ -231,31 +231,7 @@ const PLANS = {
 };
 
 const DAYS = [
-  { label:"Lunes 13 de julio", short:"Lunes 13", menus:[
-    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Aforrado de pollo con arroz blanco (Nacional)", kcal:560},
-    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Vacío al horno con salsa criolla y papas rústicas", kcal:630},
-    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Pechuga grillada con vegetales al vapor", kcal:470},
-    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Canelones de choclo con salsa bechamel", kcal:680},
-    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Salteado de carne con salsa de champiñones y papas hasselback", kcal:660},
-    {cat:"GESA",       badge:"badge-gesa",        name:"Menú GESA",          plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
-  ]},
-  { label:"Martes 14 de julio", short:"Martes 14", menus:[
-    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Guiso de arroz con carne vacuna (Nacional)", kcal:550},
-    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Pollo frito con puré de papas al ajillo (EE.UU.)", kcal:650},
-    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Filete de pescado al limón con brócoli y coliflor", kcal:480},
-    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Lomo de cerdo al ajo con puré de batata", kcal:670},
-    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Bife de lomo al ajo con farofa y arroz al coco (Brasil)", kcal:720},
-    {cat:"GESA",       badge:"badge-gesa",        name:"Menú GESA",          plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
-  ]},
-  { label:"Miércoles 15 de julio", short:"Miércoles 15", menus:[
-    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Filete de pescado a la portuguesa con papas al murro (Portugal)", kcal:480},
-    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Ravioles de jamón y queso con salsa parisién", kcal:610},
-    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Lomito grillado con ratatouille", kcal:490},
-    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Pata muslo al horno con arroz árabe", kcal:660},
-    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Asado a la olla con mandioca y ensalada rusa (Nacional)", kcal:650},
-    {cat:"GESA",       badge:"badge-gesa",        name:"Menú GESA",          plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
-  ]},
-  { label:"Jueves 16 de julio", short:"Jueves 16", menus:[
+  { label:"Lunes 20 de julio", short:"Lunes 20", menus:[
     {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Espagueti con salsa Alfredo y tiritas de lomo", kcal:570},
     {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Bondiola grillada con salsa de cebolla caramelizada y budín de vegetales", kcal:640},
     {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Chowfan integral de pollo — arroz frito chino (China)", kcal:520},
@@ -263,12 +239,36 @@ const DAYS = [
     {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Curry de pollo con arroz blanco (India)", kcal:610},
     {cat:"GESA",       badge:"badge-gesa",        name:"Menú GESA",          plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
   ]},
-  { label:"Viernes 17 de julio", short:"Viernes 17", menus:[
+  { label:"Martes 21 de julio", short:"Martes 21", menus:[
     {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Costilla BBQ con papas al horno (EE.UU.)", kcal:620},
     {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Marinera con arroz quesú (Nacional)", kcal:590},
     {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Lomito de cerdo grillado con puré de zanahoria", kcal:460},
     {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Bife a caballo con papas fritas (Nacional)", kcal:700},
     {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Risotto de pollo y vegetales con queso parmesano (Italia)", kcal:620},
+    {cat:"GESA",       badge:"badge-gesa",        name:"Menú GESA",          plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
+  ]},
+  { label:"Miércoles 22 de julio", short:"Miércoles 22", menus:[
+    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Aforrado de pollo con arroz blanco (Nacional)", kcal:560},
+    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Vacío al horno con salsa criolla y papas rústicas", kcal:630},
+    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Pechuga grillada con vegetales al vapor", kcal:470},
+    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Canelones de choclo con salsa bechamel", kcal:680},
+    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Salteado de carne con salsa de champiñones y papas hasselback", kcal:660},
+    {cat:"GESA",       badge:"badge-gesa",        name:"Menú GESA",          plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
+  ]},
+  { label:"Jueves 23 de julio", short:"Jueves 23", menus:[
+    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Guiso de arroz con carne vacuna (Nacional)", kcal:550},
+    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Pollo frito con puré de papas al ajillo (EE.UU.)", kcal:650},
+    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Filete de pescado al limón con brócoli y coliflor", kcal:480},
+    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Lomo de cerdo al ajo con puré de batata", kcal:670},
+    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Bife de lomo al ajo con farofa y arroz al coco (Brasil)", kcal:720},
+    {cat:"GESA",       badge:"badge-gesa",        name:"Menú GESA",          plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
+  ]},
+  { label:"Viernes 24 de julio", short:"Viernes 24", menus:[
+    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Filete de pescado a la portuguesa con papas al murro (Portugal)", kcal:480},
+    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Ravioles de jamón y queso con salsa parisién", kcal:610},
+    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Lomito grillado con ratatouille", kcal:490},
+    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Pata muslo al horno con arroz árabe", kcal:660},
+    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Asado a la olla con mandioca y ensalada rusa (Nacional)", kcal:650},
     {cat:"GESA",       badge:"badge-gesa",        name:"Menú GESA",          plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
   ]}
 ];
