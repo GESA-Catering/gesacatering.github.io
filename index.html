@@ -156,7 +156,7 @@
       <div class="logo-block lb-a">A</div>
     </div>
     <div class="header-text">
-      <div class="header-title">Pedidos — semana del 3 al 7 de agosto</div>
+      <div class="header-title">Pedidos — semana del 10 al 14 de agosto</div>
       <div class="header-sub">Pedidos hasta las 10:00 am del día anterior</div>
     </div>
   </div>
@@ -192,11 +192,11 @@
 
   <!-- DAY TABS -->
   <div class="day-tabs" id="dayTabs">
-    <div class="day-tab active" onclick="selectDay(0)">Lunes 3</div>
-    <div class="day-tab" onclick="selectDay(1)">Martes 4</div>
-    <div class="day-tab" onclick="selectDay(2)">Miércoles 5</div>
-    <div class="day-tab" onclick="selectDay(3)">Jueves 6</div>
-    <div class="day-tab" onclick="selectDay(4)">Viernes 7</div>
+    <div class="day-tab active" onclick="selectDay(0)">Lunes 10</div>
+    <div class="day-tab" onclick="selectDay(1)">Martes 11</div>
+    <div class="day-tab" onclick="selectDay(2)">Miércoles 12</div>
+    <div class="day-tab" onclick="selectDay(3)">Jueves 13</div>
+    <div class="day-tab" onclick="selectDay(4)">Viernes 14</div>
   </div>
 
   <div class="menus-section">
@@ -278,44 +278,44 @@ const PLANS = {
 };
 
 const DAYS = [
-  { label:"Lunes 3 de agosto", short:"Lunes 3", menus:[
-    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Milanesa de pollo con arroz con queso", kcal:560},
-    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"So'o josopy con tortillitas", kcal:620},
-    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Pechuga grillada con salsa de curry y puré de zapallo", kcal:460},
-    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Lasagna de carne con verduras al horno", kcal:720},
-    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Bondiola de cerdo en salsa barbacoa y papas asadas", kcal:750},
+  { label:"Lunes 10 de agosto", short:"Lunes 10", menus:[
+    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Guiso de arroz con pollo", kcal:610},
+    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Bife vacuno a caballo con puré de papa", kcal:750},
+    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Pechuga de pollo grillada con brócoli y coliflor al vapor", kcal:450},
+    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Canelones de carne vacuna con salsa rosada", kcal:700},
+    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Lomo de cerdo a la cerveza con papas rústicas", kcal:780},
     {cat:"GESA",       badge:"badge-gesa",        name:"Menú GESA",          plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
   ]},
-  { label:"Martes 4 de agosto", short:"Martes 4", menus:[
-    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Guiso de fideo con carne vacuna", kcal:570},
-    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Ají de gallina y arroz pilaf", kcal:580},
-    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Pescado a la plancha con salsa verde y vegetales al oliva", kcal:430},
-    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Costilla de cerdo al ajillo con papas hasselback a la mostaza dulce", kcal:760},
-    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Lomito vacuno con salsa de queso y mostaza con verduras grilladas", kcal:720},
+  { label:"Martes 11 de agosto", short:"Martes 11", menus:[
+    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Salteado de carne vacuna y vegetales con arroz blanco", kcal:590},
+    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Vori vori de pollo con ensalada", kcal:620},
+    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Pescado a la plancha con vegetales al oliva", kcal:430},
+    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Desmechado de cerdo con vegetales salteados", kcal:720},
+    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Lomito vacuno en salsa de vino con puré de papas al oliva", kcal:720},
     {cat:"GESA",       badge:"badge-gesa",        name:"Menú GESA",          plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
   ]},
-  { label:"Miércoles 5 de agosto", short:"Miércoles 5", menus:[
-    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Caldo de pescado con tortillas de arroz y queso", kcal:420},
-    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Ravioles de carne con salsa crema y queso", kcal:640},
-    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Desmechado de carne con arroz integral al perejil", kcal:480},
-    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Pechuga rellena con salsa crema y soufflé de arroz", kcal:680},
-    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Pescado al papillote con papas a la francesa", kcal:620},
+  { label:"Miércoles 12 de agosto", short:"Miércoles 12", menus:[
+    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Pescado a la portuguesa con papas doradas", kcal:580},
+    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Ravioles de carne con salsa putanesca", kcal:640},
+    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Lomito vacuno grillado con ratatouille", kcal:500},
+    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Pechuga rellena con jamón y queso en salsa crema con arroz pilaf", kcal:650},
+    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Asado a la olla con ensalada de mandioca", kcal:700},
     {cat:"GESA",       badge:"badge-gesa",        name:"Menú GESA",          plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
   ]},
-  { label:"Jueves 6 de agosto", short:"Jueves 6", menus:[
-    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Tallarín con salsa bolognesa y papas", kcal:640},
-    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Estofado de cerdo con polenta y verduras", kcal:610},
-    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Ñoquis integrales con salsa pomodoro y tiritas de carne", kcal:470},
-    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Chupín de pescado y batata frita", kcal:690},
-    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Coq au vin (guiso de pollo al vino tinto) con dúo de puré de papa y calabaza", kcal:700},
+  { label:"Jueves 13 de agosto", short:"Jueves 13", menus:[
+    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Fettuccine con salsa parmesana", kcal:540},
+    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Lomo de cerdo a la mostaza con puré de batata", kcal:680},
+    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Tiritas de pollo salteadas con vegetales y pasta integral", kcal:510},
+    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Chupín de tilapia con papas gratinadas", kcal:620},
+    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Pollo a la pizza con vegetales asados", kcal:680},
     {cat:"GESA",       badge:"badge-gesa",        name:"Menú GESA",          plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
   ]},
-  { label:"Viernes 7 de agosto", short:"Viernes 7", menus:[
-    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Costilla de cerdo a la naranja con tallarines a la manteca", kcal:680},
-    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Milanesa de pescado con arroz azafranado", kcal:590},
-    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Lomito de cerdo grillado con salsa de curry y zucchini salteado", kcal:450},
-    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Bife de chorizo con puré de papas mediterráneo", kcal:780},
-    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Ravioli de jamón y queso con salsa parisienne", kcal:650},
+  { label:"Viernes 14 de agosto", short:"Viernes 14", menus:[
+    {cat:"Económico",  badge:"badge-economico",  name:"Menú económico",     plate:"Kure chyrry con mix de tubérculos", kcal:560},
+    {cat:"Tradicional",badge:"badge-tradicional",name:"Menú tradicional",   plate:"Pollo al limón con calabaza asada al orégano", kcal:600},
+    {cat:"Fit",        badge:"badge-fit",         name:"Menú fit",           plate:"Bife de lomito de cerdo grillado con puré de coliflor", kcal:480},
+    {cat:"Ejecutivo",  badge:"badge-ejecutivo",   name:"Menú ejecutivo",     plate:"Lomito vacuno en salsa de champiñones con budín de vegetales", kcal:730},
+    {cat:"Chef",       badge:"badge-chef",        name:"Sugerencia del chef",plate:"Risotto de lomito vacuno con parmesano", kcal:690},
     {cat:"GESA",       badge:"badge-gesa",        name:"Menú GESA",          plate:"Tu elección de proteína y guarnición", kcal:null, isGesa:true}
   ]}
 ];
